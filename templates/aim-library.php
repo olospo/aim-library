@@ -6,6 +6,14 @@ Template Name: AIM Library Prototype
 get_header();
 ?>
 
+<section class="hero single">
+  <div class="container">
+    <div class="content ten columns">
+      <h1>Library of Measures</h1>
+    </div>
+  </div>  
+</section>
+
 <section class="measure-library">
   <div class="container">
   <div class="measure-filters">
