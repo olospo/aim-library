@@ -168,9 +168,9 @@
 
 .measures-table {
   width: 100%;
-  min-width: 960px;
-  border-collapse: collapse;
+  border-collapse: collapse !important;
   table-layout: auto;
+  border: none;
 }
 
 .measures-table th {
@@ -210,10 +210,9 @@
 }
 
 .measures-table td {
-  padding: 18px 16px;
+  padding: 15px;
   vertical-align: middle;
-  font-size: 1.4rem;
-  line-height: 1.45;
+  border: none;
 }
 
 .measures-table tbody tr:nth-child(even) {
@@ -246,9 +245,9 @@
   padding: 4px 10px;
   border-radius: 7px;
   border: 1px solid #bbd0e5;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  line-height: 1.2;
+  line-height: 1.3;
   white-space: normal;
 }
 
@@ -278,15 +277,15 @@
   display: inline-flex;
   align-items: center;
   max-width: 100%;
-  min-height: 26px;
+  min-height: 28px;
   padding: 4px 8px;
   border-radius: 7px;
   background: rgba(217, 102, 85, 0.1);
   border: 1px solid #c07e74;
   color: #D96655;
-  font-size: 1.2rem;
-  font-weight: 750;
-  line-height: 1.25;
+  font-size: 1.3rem;
+  font-weight: 800;
+  line-height: 1.3;
   white-space: normal;
 }
 
@@ -336,6 +335,10 @@
 /* =============================
    HERO
 ============================= */
+
+.measure-shell {
+  padding: 20px 0 40px 0;
+}
 
 .measure-hero {
   display: grid;
@@ -421,7 +424,7 @@
   margin-bottom: 7px;
   color: var(--aim-muted);
   font-size: 1.2rem;
-  font-weight: 850;
+  font-weight: bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -430,7 +433,7 @@
 .meta-value {
   display: block;
   color: var(--aim-blue);
-  font-size: 1.2rem;
+  font-size: 2.0rem;
   font-weight: 850;
   line-height: 1.25;
 }
@@ -522,7 +525,7 @@
 .property-item h3 {
   margin: 0;
   color: var(--aim-blue);
-  font-size: 0.95rem;
+  font-size: 1.8rem;
   line-height: 1.45;
 }
 
@@ -559,13 +562,12 @@
 .footer-section h2 {
   margin: 0 0 16px;
   color: var(--aim-blue);
-  font-size: 1.3rem;
+  font-size: 2.4rem;
 }
 
 .footer-section p {
   margin: 0;
-  font-size: 1rem;
-  line-height: 1.65;
+  font-size: 1.8rem;
 }
 
 .citation-box {
@@ -577,7 +579,7 @@
 
 .citation-box p {
   margin: 0 0 16px;
-  font-size: 0.92rem;
+  font-size: 1.6rem;
 }
 
 /* Buttons */
@@ -627,10 +629,6 @@
 @media (max-width: 760px) {
   .measure-page {
     padding-top: 20px;
-  }
-
-  .measure-shell {
-    width: min(100% - 28px, 1200px);
   }
 
   .measure-hero-main,
