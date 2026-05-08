@@ -17,7 +17,7 @@ jobs:
           port: 21
           protocol: ftps
           server: termite-lon.cloudhosting.uk
-          server-dir: public_html/wp-content/themes/aim-library
+          server-dir: public_html/wp-content/themes/aim-library/
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           # Requires secrets to be added to the repo (Settings > Secrets)
