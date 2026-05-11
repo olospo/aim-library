@@ -6,49 +6,46 @@ Template Name: AIM Measure Prototype
 get_header();
 ?>
 
+<section class="hero measure-hero">
+  <div class="container">
+    <div class="content twelve columns">
+        <p class="eyebrow">Measure</p>
+      
+        <h1>Adolescent Cognitive Style Questionnaire</h1>
+        <p class="measure-summary">The ACSQ is a scenario-based measure which assesses respondents' negative inferences for causes and consequences of events, and negative inferences relating to self-concept.</p>
+    </div>
+  </div>  
+</section>
+<section class="measure-meta">
+  <div class="container">
+    <div class="measure-meta-card">
+      <div class="meta-item">
+        <span class="meta-label">Age range</span>
+        <strong>13–18 years</strong>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Completion time</span>
+        <strong>20 minutes</strong>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Respondent</span>
+        <span class="tag tag-self">Self-report</span>
+      </div> 
+      <div class="meta-item">
+        <span class="meta-label">Problem areas</span>
+        <div class="meta-tags">
+          <span class="problem-tag">Mood Problems</span>
+          <span class="problem-tag">Anxiety</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <main class="measure-page">
   <div class="container">
     <div class="measure-shell">
-    
-      <a href="<?php echo esc_url( home_url('/aim-library/') ); ?>" class="back-link">← Return to Library</a>
-    
-      <section class="measure-hero">
-        <div class="measure-hero-main">
-          <p class="eyebrow">Measure</p>
-    
-          <h1>Adolescent Cognitive Style Questionnaire</h1>
-    
-          <p class="measure-summary">
-            The ACSQ is a scenario-based measure which assesses respondents' negative inferences for causes and consequences of events, and negative inferences relating to self-concept.
-          </p>
-        </div>
-    
-        <aside class="measure-meta-card">
-          <div class="meta-item">
-            <span class="meta-label">Age range</span>
-            <strong>13–18 years</strong>
-          </div>
-    
-          <div class="meta-item">
-            <span class="meta-label">Completion time</span>
-            <strong>20 minutes</strong>
-          </div>
-    
-          <div class="meta-item">
-            <span class="meta-label">Respondent</span>
-            <span class="tag tag-self">Self-report</span>
-          </div>
-          
-          <div class="meta-item">
-            <span class="meta-label">Problem areas</span>
-            <div class="meta-tags">
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Anxiety</span>
-            </div>
-          </div>
-        </aside>
-      </section>
-    
+
       <article class="measure-main-card">
     
         <section class="measure-section">
