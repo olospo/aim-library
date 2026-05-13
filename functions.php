@@ -23,8 +23,12 @@ add_action('wp_enqueue_scripts', function () {
 
 }, 20);
 
-function debug ( $msg, $exit = false ) {
-	echo '<pre>';
-	print_r($msg);
-	echo '</pre>';
+function debug ( $msg, $exit = false ): void {
+		echo '<pre>';
+		print_r($msg);
+		echo '</pre>';
+
+		if ($exit) {
+			die("Exiting");
+		}
 }
