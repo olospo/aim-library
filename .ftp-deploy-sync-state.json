@@ -1,0 +1,63 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1778497763233,
+    "data": [
+        {
+            "type": "file",
+            "name": "archive-measure.php",
+            "size": 184,
+            "hash": "46a854711ce12acf86e980981e5619b5f7be2c7bfb50ab48a587fb9db9a626c1"
+        },
+        {
+            "type": "folder",
+            "name": "css"
+        },
+        {
+            "type": "file",
+            "name": "functions.php",
+            "size": 566,
+            "hash": "45c0dd3dffcb325038a463dc0f046ff48c69cd43182d99053fb617f55ff9c842"
+        },
+        {
+            "type": "file",
+            "name": "screenshot.png",
+            "size": 58583,
+            "hash": "176dec8d4854c0e8771639b4736d59ae235b419326100a7df586272b52b1cb4c"
+        },
+        {
+            "type": "file",
+            "name": "single-measure.php",
+            "size": 184,
+            "hash": "46a854711ce12acf86e980981e5619b5f7be2c7bfb50ab48a587fb9db9a626c1"
+        },
+        {
+            "type": "file",
+            "name": "style.css",
+            "size": 219,
+            "hash": "7bb3daf3ec167f8373113c3f4ff2f707f40e8a4b10b32decce5d06bd9c1dc6bf"
+        },
+        {
+            "type": "folder",
+            "name": "templates"
+        },
+        {
+            "type": "file",
+            "name": "css/library.css",
+            "size": 9459,
+            "hash": "98dce120a8dc5fe572105cca0f34257c245943e4af79252ea206b7a05fc31536"
+        },
+        {
+            "type": "file",
+            "name": "templates/aim-library.php",
+            "size": 18755,
+            "hash": "5b0f60a057ab92284395ca6a430ef8420aac48e0963da6ed40b03f8ee55ea6d9"
+        },
+        {
+            "type": "file",
+            "name": "templates/aim-measure.php",
+            "size": 7092,
+            "hash": "751828712e1dc0581081eb8c8267e30db1c737533bbf9c219b07e36bba90a556"
+        }
+    ]
+}
