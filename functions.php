@@ -7,7 +7,7 @@ add_action('wp_enqueue_scripts', function () {
         [],
         filemtime(get_stylesheet_directory() . '/style.css')
     );
-    
+
     if (is_page_template([
         'templates/aim-library.php',
         'templates/aim-measure.php',
@@ -19,6 +19,12 @@ add_action('wp_enqueue_scripts', function () {
             filemtime(get_stylesheet_directory() . '/css/library.css')
         );
     }
-    
-    
+
+
 }, 20);
+
+function debug ( $msg, $exit = false ) {
+	echo '<pre>';
+	print_r($msg);
+	echo '</pre>';
+}
