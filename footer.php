@@ -69,7 +69,7 @@
           <div class="search_form"><?php get_search_form(); ?></div>
         </div>
           <?php if(is_user_logged_in()){ ?><h5>Logout</h5>
-          <a href="/wp-login.php?action=logout"><button type="button">Logout</a>
+          <a href="/wp-login.php?action=logout"><button type="button" style="padding: 4px 2px; color: #1C3B70; text-decoration: none; text-transform: uppercase;">Logout</a>
           <?php } ?>
       </div>
     </div>
