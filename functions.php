@@ -35,7 +35,7 @@ function debug ( $msg, $exit = false ): void {
 
 // hide admin bar from subscribers after logging in
 	add_action( 'after_setup_theme', function () {
-		if ( current_user_can( 'subscriber' ) ) {
+		if ( !current_user_can( 'manage_options' ) ) {
 			show_admin_bar( false );
 		}
 	} );
