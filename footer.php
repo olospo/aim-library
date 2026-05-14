@@ -69,8 +69,8 @@
           <div class="search_form"><?php get_search_form(); ?></div>
         </div>
           <?php if(is_user_logged_in()){ ?><h5>Logout</h5>
-              <button type="button" style="padding: 4px 10px; border-color: #F05Dff; background-color: #1C3B70;" >
-                <a href="/wp-login.php?action=logout" style="text-transform: uppercase; font-weight: 700; text-decoration:none; color: #F05D55">Logout</a>
+              <button type="button" style="padding: 4px 10px; border-color: #EA5D4D; background-color: #1C3B70;" >
+                <a href="/wp-login.php?action=logout" style="text-transform: uppercase; font-weight: 700; text-decoration:none; color: #FEFEFE">Logout</a>
               </button>
           <?php } ?>
       </div>
