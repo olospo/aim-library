@@ -8,14 +8,20 @@ get_header();
 
 <section class="hero measure-hero">
   <div class="container">
-    <div class="content twelve columns">
+    <div class="content ten columns">
+        <!-- <a href="<?php echo esc_url( home_url('/aim-library/') ); ?>" class="back-link">Back to Library</a> -->
+        
         <p class="eyebrow">Measure</p>
       
         <h1>Adolescent Cognitive Style Questionnaire</h1>
-        <p class="measure-summary">The ACSQ is a scenario-based measure which assesses respondents' negative inferences for causes and consequences of events, and negative inferences relating to self-concept.</p>
+      
+        <p class="measure-summary">
+          The ACSQ is a scenario-based measure which assesses respondents' negative inferences for causes and consequences of events, and negative inferences relating to self-concept.
+        </p>
     </div>
   </div>  
 </section>
+
 <section class="measure-meta">
   <div class="container">
     <div class="measure-meta-card">
@@ -23,14 +29,17 @@ get_header();
         <span class="meta-label">Age range</span>
         <strong>13–18 years</strong>
       </div>
+  
       <div class="meta-item">
         <span class="meta-label">Completion time</span>
         <strong>20 minutes</strong>
       </div>
+  
       <div class="meta-item">
         <span class="meta-label">Respondent</span>
         <span class="tag tag-self">Self-report</span>
-      </div> 
+      </div>
+      
       <div class="meta-item">
         <span class="meta-label">Problem areas</span>
         <div class="meta-tags">
@@ -45,31 +54,19 @@ get_header();
 <main class="measure-page">
   <div class="container">
     <div class="measure-shell">
-
-      <article class="measure-main-card">
-    
+      <article class="measure-main-card">  
         <section class="measure-section">
           <h2>Overview</h2>
+          <p>The Adolescent Cognitive Style Questionnaire (Hankin &amp; Abramson, 2002) was adapted from an adult measure for cognitive style described by Metalsky &amp; Joiner, 1992.</p>
     
-          <p>
-            The Adolescent Cognitive Style Questionnaire (Hankin &amp; Abramson, 2002) was adapted from an adult measure for cognitive style described by Metalsky &amp; Joiner, 1992.
-          </p>
-    
-          <p>
-            The measure is made up of hypothetical situations, adapted to be relevant to adolescents' experiences. Respondents are asked to write possible causes for hypothetical situations and rate the likelihood of further negative consequences arising, as well as the extent to which the event would indicate they are flawed.
-          </p>
+          <p>The measure is made up of hypothetical situations, adapted to be relevant to adolescents' experiences. Respondents are asked to write possible causes for hypothetical situations and rate the likelihood of further negative consequences arising, as well as the extent to which the event would indicate they are flawed.</p>
         </section>
     
         <section class="measure-section">
           <h2>Scoring &amp; Interpretation</h2>
+          <p>Each of 12 hypothetical scenarios has 5 questions, assessing different domains of cognitive style. For each of the five domains, the mean score is taken for responses, for example the mean score for part 'a' responses for each of the five scenarios.</p>
     
-          <p>
-            Each of 12 hypothetical scenarios has 5 questions, assessing different domains of cognitive style. For each of the five domains, the mean score is taken for responses, for example the mean score for part 'a' responses for each of the five scenarios.
-          </p>
-    
-          <p>
-            The five domains assessed are: internality in cognitive style; global cognitive style; stable cognitive style; cognitive style relating to consequences; and cognitive style relating to self.
-          </p>
+          <p>The five domains assessed are: internality in cognitive style; global cognitive style; stable cognitive style; cognitive style relating to consequences; and cognitive style relating to self.</p>
         </section>
     
         <section class="measure-section">

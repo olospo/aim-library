@@ -20,12 +20,12 @@ get_header();
     <div class="filter-inner">
 
       <div class="filter-block">
-        <label class="filter-label" for="measure-search">Search measures</label>
+        <label class="filter-label" for="measure-search">Filter measures</label>
         <input
           id="measure-search"
           type="search"
           class="measure-search"
-          placeholder="Search by measure title"
+          placeholder="Filter by measure title"
         >
       </div>
 
