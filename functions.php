@@ -23,32 +23,20 @@ add_action('wp_enqueue_scripts', function () {
 
 }, 20);
 
-	/**
-	 * Include 'measure' custom post type in WordPress search results.
-	 */
-	add_action( 'pre_get_posts', function( WP_Query $query ) {
+/**
+ * Include 'measure' custom post type in WordPress search results.
+ */
+add_action( 'pre_get_posts', 'aim_add_custom_types' );
 
-		if ( ! $query->is_search() || ! $query->is_main_query() || is_admin() ) {
+function aim_add_custom_types( $query ) {
+	if ( ! $query->is_search() || ! $query->is_main_query() || is_admin() ) {
 			return;
 		}
 
-		$post_types = $query->get( 'post_type' );
+		$query->set( 'post_type', array('post', 'page', 'measure') );
 
-		// If no post types are set, WordPress defaults to 'post' — make that explicit
-		if ( empty( $post_types ) ) {
-			$post_types = [ 'post' ];
-		}
-
-		if ( is_string( $post_types ) ) {
-			$post_types = explode( ',', $post_types );
-		}
-
-		if ( ! in_array( 'measure', $post_types, true ) ) {
-			$post_types[] = 'measure';
-		}
-
-		$query->set( 'post_type', $post_types );
-	} );
+		return $query;
+};
 
 // hide admin bar from subscribers after logging in
 	add_action( 'after_setup_theme', function () {

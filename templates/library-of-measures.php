@@ -6,6 +6,12 @@ Template Name: Library of Measures
 get_header();
 
 // fetch all measures
+    $args = [
+            'post_type' => 'measure',
+            'numberposts' => -1,
+    ];
+
+    $measures = get_posts($args);
 
 ?>
 
@@ -102,7 +108,7 @@ get_header();
 
   <div class="measure-results">
     <div class="results-summary">
-      <p><strong>Showing 31 measures</strong></p>
+        <p><strong>Showing <span class="js-count"><?php echo count($measures); ?></span> measures</strong></p>
       <button type="button" class="clear-filters">Clear filters</button>
     </div>
 
@@ -133,301 +139,41 @@ get_header();
         </thead>
 
         <tbody>
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Meta-Cognitions Questionnaire for Adolescents (MCQ-A)</a></td>
-            <td>13–17 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Obsessions and Compulsions</span>
-            </td>
-          </tr>
+        <?php foreach ($measures as $measure) {
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Eating Disorder Inventory – Perfectionism Scale (EDI-P)</a></td>
-            <td>12–53 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Body Image and Eating Difficulties</span>
-            </td>
-          </tr>
+            // get key post metas
+            $metas = get_post_meta( $measure->ID );
+            $age_description = $metas['age_description'][0] ?? null;
+            $respondent = $metas['respondent'][0] ?? null;
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Youth Intolerance of Uncertainty – Parent-Report (YIU-PR)</a></td>
-            <td>6–17 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
+            // get problem areas
+            $terms = get_the_terms( $measure->ID, 'problem-area' );
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Body Esteem Scale for Adolescents and Adults (BESAA)</a></td>
-            <td>12–25 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Body Image and Eating Difficulties</span>
-            </td>
-          </tr>
+            $problem_areas = [];
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Bird Checklist of Adolescent Paranoia (B-CAP)</a></td>
-            <td>11–17 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Unusual Experiences</span>
-            </td>
-          </tr>
+            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+                $problem_areas = wp_list_pluck( $terms, 'name' );
+            }
 
+            $problem_tags = null;
+            foreach($problem_areas as $tag) {
+                $problem_tags .= '<span class="problem-tag" data-tag="' . str_replace(' ', '-', strtolower($tag)) . '">' . $tag . '</span>' . "\r\n";
+            }
+            echo <<<MEASURE
           <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Situational Self-Awareness Scale (SSAS)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
+            <td><a href="{$measure->post_permalink}">{$measure->post_title}</a></td>
+            <td>{$age_description}</td>
+            <td><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
+              {$problem_tags}
             </td>
           </tr>
+MEASURE;
+        }
+        ?>
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Focus of Attention Questionnaire (FAQ)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Childhood Anxiety Sensitivity Index (CASI)</a></td>
-            <td>8–16 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
 
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Trauma Memory Quality Questionnaire (TMQQ)</a></td>
-            <td>8–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Trauma</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Children's Automatic Thoughts Scale (CATS)</a></td>
-            <td>7–16 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Behaviour Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Children's Attributional Style Questionnaire</a></td>
-            <td>8–13 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Spontaneous Use of Imagery Scale (SUIS)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Other</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Self-Concept Clarity Scale (SCCS)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Negative Problem Orientation Questionnaire (NPOQ)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Child &amp; Adolescent Social Cognitions Questionnaire (CASCQ)</a></td>
-            <td>11–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">The Impact of Future Events Scale (IFES)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Trauma</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Difficulties with Emotion Regulation Scale (DERS)</a></td>
-            <td>10–19 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Behaviour Problems</span>
-              <span class="problem-tag">Self-harm and Suicidal Thoughts and Behaviour</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Repetitive Behaviour Questionnaire (RBQ-2)</a></td>
-            <td>2–3 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Other</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Adolescent Cognitive Style Questionnaire</a></td>
-            <td>13–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Children's Anger Rumination Scale (CARS)</a></td>
-            <td>7–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Behaviour Problems</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Repetitive Thinking Questionnaire-10 (RTQ-10)</a></td>
-            <td>Not specified</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Emotion Regulation Questionnaire for Children and Adolescents (ERQ-CA)</a></td>
-            <td>10–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Self-harm and Suicidal Thoughts and Behaviour</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Child Post-Traumatic Cognitions Inventory</a></td>
-            <td>6–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Trauma</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Children's Alexithymia Measure (CAM)</a></td>
-            <td>5–17 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Other</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Co-Rumination Questionnaire</a></td>
-            <td>8–13 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Child Avoidance Measure: CAM</a></td>
-            <td>8–12 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Child Avoidance Measure - Parent report: CAMP</a></td>
-            <td>8–12 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Intolerance of Uncertainty Scale for Children (IUSC) Child and Parent Report</a></td>
-            <td>7–17 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Responses to Uncertainty and Low Environmental Structure (RULES)</a></td>
-            <td>3–10 years</td>
-            <td><span class="tag tag-parent">Parent / Carer</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Persistent and Intrusive Negative Thoughts Scale (PINTS)</a></td>
-            <td>10–14 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-              <span class="problem-tag">Body Image and Eating Difficulties</span>
-              <span class="problem-tag">Self-harm and Suicidal Thoughts and Behaviour</span>
-            </td>
-          </tr>
-
-          <tr>
-            <td><a href="<?php echo esc_url( home_url('/aim-measure/') ); ?>">Perseverative Thinking Questionnaire-Child (PTQ-C)</a></td>
-            <td>8–18 years</td>
-            <td><span class="tag tag-self">Self-report</span></td>
-            <td class="problem-tags">
-              <span class="problem-tag">Anxiety</span>
-              <span class="problem-tag">Mood Problems</span>
-            </td>
-          </tr>
         </tbody>
       </table>
     </div>
@@ -484,4 +230,4 @@ document.querySelectorAll('.sort-button').forEach((button, colIndex) => {
 });
 </script>
 
-<?php get_footer(); ?>
+<?php get_footer();
