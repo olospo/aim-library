@@ -1,0 +1,74 @@
+{
+    "key": "group_6a0ad987e1540",
+    "title": "Measure - Additional Psychometric properties",
+    "fields": [
+        {
+            "key": "field_6a0ad987eb506",
+            "label": "Group Differences",
+            "name": "group_differences",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6a0ad987eb5a7",
+            "label": "Sensitivity to Change",
+            "name": "sensitivity",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "measure"
+            }
+        ]
+    ],
+    "menu_order": 4,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "excerpt",
+        "discussion",
+        "comments"
+    ],
+    "active": true,
+    "description": "Additional properties for the Measure content type",
+    "show_in_rest": 0,
+    "display_title": "Measure — Additional Psychometric properties",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1779184722
+}
