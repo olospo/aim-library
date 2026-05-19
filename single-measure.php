@@ -45,7 +45,7 @@
 
     <section class="hero measure-hero">
         <div class="container">
-            <div class="content ten columns">
+            <div class="content twelve columns">
                 <!-- <a href="<?php echo esc_url( home_url('/aim-library/') ); ?>" class="back-link">Back to Library</a> -->
 
                 <p class="eyebrow">Measure</p>
