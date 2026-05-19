@@ -23,15 +23,32 @@ add_action('wp_enqueue_scripts', function () {
 
 }, 20);
 
-function debug ( $msg, $exit = false ): void {
-		echo '<pre>';
-		print_r($msg);
-		echo '</pre>';
+	/**
+	 * Include 'measure' custom post type in WordPress search results.
+	 */
+	add_action( 'pre_get_posts', function( WP_Query $query ) {
 
-		if ($exit) {
-			die("Exiting");
+		if ( ! $query->is_search() || ! $query->is_main_query() || is_admin() ) {
+			return;
 		}
-}
+
+		$post_types = $query->get( 'post_type' );
+
+		// If no post types are set, WordPress defaults to 'post' — make that explicit
+		if ( empty( $post_types ) ) {
+			$post_types = [ 'post' ];
+		}
+
+		if ( is_string( $post_types ) ) {
+			$post_types = explode( ',', $post_types );
+		}
+
+		if ( ! in_array( 'measure', $post_types, true ) ) {
+			$post_types[] = 'measure';
+		}
+
+		$query->set( 'post_type', $post_types );
+	} );
 
 // hide admin bar from subscribers after logging in
 	add_action( 'after_setup_theme', function () {
@@ -39,3 +56,13 @@ function debug ( $msg, $exit = false ): void {
 			show_admin_bar( false );
 		}
 	} );
+
+	function debug ( $msg, $exit = false ): void {
+		echo '<pre>';
+		print_r($msg);
+		echo '</pre>';
+
+		if ($exit) {
+			die("Exiting");
+		}
+	}
