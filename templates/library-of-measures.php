@@ -141,9 +141,15 @@ get_header();
         <tbody>
         <?php foreach ($measures as $measure) {
 
+            $link = get_permalink($measure->ID);
+
             // get key post metas
             $metas = get_post_meta( $measure->ID );
-            $age_description = $metas['age_description'][0] ?? null;
+            $age_min = $metas['age_min'][0] ?? null;
+            $age_max = $metas['age_max'][0] ?? null;
+            $ages = $age_min ?? null;
+            $ages = ($age_min && $age_max) ? $age_min . '&nbsp;&mdash;&nbsp;' . $age_max : $ages;
+            $ages = $ages ? $ages : $age_max;
             $respondent = $metas['respondent'][0] ?? null;
 
             // get problem areas
@@ -161,8 +167,8 @@ get_header();
             }
             echo <<<MEASURE
           <tr>
-            <td><a href="{$measure->post_permalink}">{$measure->post_title}</a></td>
-            <td>{$age_description}</td>
+            <td><a href="{$link}">{$measure->post_title}</a></td>
+            <td>{$ages}</td>
             <td><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
               {$problem_tags}

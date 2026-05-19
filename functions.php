@@ -26,17 +26,37 @@ add_action('wp_enqueue_scripts', function () {
 /**
  * Include 'measure' custom post type in WordPress search results.
  */
-add_action( 'pre_get_posts', 'aim_add_custom_types' );
+// Search - override parent theme search customisation to include measures
+	add_action( 'after_setup_theme', function() {
 
-function aim_add_custom_types( $query ) {
-	if ( ! $query->is_search() || ! $query->is_main_query() || is_admin() ) {
-			return;
-		}
+		// Remove the parent theme's function - you need the exact function name and priority
+		remove_action( 'pre_get_posts', 'tg_include_custom_post_types_in_search_results', 10 );
 
-		$query->set( 'post_type', array('post', 'page', 'measure') );
+		// Add your own replacement
+		add_action( 'pre_get_posts', function( WP_Query $query ) {
 
-		return $query;
-};
+			if ( ! $query->is_search() || ! $query->is_main_query() || is_admin() ) {
+				return;
+			}
+
+			$post_types = $query->get( 'post_type' );
+
+			if ( empty( $post_types ) ) {
+				$post_types = [ 'post' ];
+			}
+
+			if ( is_string( $post_types ) ) {
+				$post_types = explode( ',', $post_types );
+			}
+
+			$post_types[] = 'measure';
+			$post_types[] = 'resource';
+
+			$query->set( 'post_type', $post_types );
+
+		} );
+
+	} );
 
 // hide admin bar from subscribers after logging in
 	add_action( 'after_setup_theme', function () {
