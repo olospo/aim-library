@@ -11,6 +11,7 @@ add_action('wp_enqueue_scripts', function () {
     if (is_page_template([
         'templates/aim-library.php',
         'templates/aim-measure.php',
+				'templates/library-of-measures.php',
     ])) {
         wp_enqueue_style(
             'aim-prototype',
@@ -23,9 +24,9 @@ add_action('wp_enqueue_scripts', function () {
 
 }, 20);
 
-	/**
-	 * RL - Preload ajax handlers for measures library
-	 */
+/**
+* RL - Preload ajax handlers for measures library
+*/
 include_once(__DIR__ . '/inc/ajax_handlers.php');
 
 /**

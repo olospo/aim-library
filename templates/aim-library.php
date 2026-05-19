@@ -45,35 +45,8 @@ get_header();
           <span class="filter-label">Age range</span>
 
           <div class="age-selects">
-            <select aria-label="Minimum age">
-              <option>Minimum age</option>
-              <option>0</option>
-              <option>2</option>
-              <option>3</option>
-              <option>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>10</option>
-              <option>11</option>
-              <option>12</option>
-              <option>13</option>
-            </select>
-
-            <select aria-label="Maximum age">
-              <option>Maximum age</option>
-              <option>3</option>
-              <option>10</option>
-              <option>12</option>
-              <option>13</option>
-              <option>14</option>
-              <option>16</option>
-              <option>17</option>
-              <option>18</option>
-              <option>19</option>
-              <option>25</option>
-              <option>53</option>
-            </select>
+            <input type="number" aria-label="Minimum age" placeholder="Minimum age" min="0">
+            <input type="number" aria-label="Maximum age" placeholder="Maximum age" min="0">
           </div>
         </div>
 
@@ -100,7 +73,7 @@ get_header();
   <div class="measure-results">
     <div class="results-summary">
       <p><strong>Showing 31 measures</strong></p>
-      <button type="button" class="clear-filters">Clear filters</button>
+      <button type="button" class="clear-filters">Reset filters</button>
     </div>
 
     <div class="table-wrap">

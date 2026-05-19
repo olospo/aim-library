@@ -68,7 +68,7 @@
   grid-template-columns: 1.5fr 0.9fr 0.9fr;
   gap: 28px;
   align-items: end;
-  margin-top: 24px;
+  margin-top: 15px;
 }
 
 .pill-group {
@@ -135,8 +135,44 @@
   gap: 14px;
 }
 
+.age-selects input {
+  width: 100%;
+  min-height: 44px;
+  box-sizing: border-box;
+  border: 1px solid var(--aim-border);
+  border-radius: 10px;
+  background: #ffffff;
+  color: var(--aim-text);
+  font-family: inherit;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 14px;
+}
+
+.age-selects input::placeholder {
+  color: var(--aim-muted);
+  font-weight: 700;
+}
+
+.age-selects input:hover {
+  border-color: #bbd0e5;
+  background: #f8fafc;
+}
+
+.age-selects input:focus {
+  outline: none;
+  border-color: #72AFAD;
+  box-shadow: 0 0 0 3px rgba(114, 175, 173, 0.18);
+}
+
+.age-selects input::-webkit-outer-spin-button,
+.age-selects input::-webkit-inner-spin-button {
+  margin: 0;
+}
+
 .measure-results {
-  padding: 30px 0 56px;
+  padding: 20px 0 56px;
 }
 
 .results-summary {
@@ -213,6 +249,9 @@
   padding: 15px;
   vertical-align: middle;
   border: none;
+}
+section table tr:nth-child(2n+1) td {
+  background: none;
 }
 
 .measures-table tbody tr:nth-child(even) {
