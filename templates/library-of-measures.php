@@ -152,19 +152,8 @@ get_header();
             $ages = $ages ? $ages : $age_max;
             $respondent = $metas['respondent'][0] ?? null;
 
-            // get problem areas
-            $terms = get_the_terms( $measure->ID, 'problem-area' );
+            $problem_tags = get_problem_areas($measure->ID);
 
-            $problem_areas = [];
-
-            if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
-                $problem_areas = wp_list_pluck( $terms, 'name' );
-            }
-
-            $problem_tags = null;
-            foreach($problem_areas as $tag) {
-                $problem_tags .= '<span class="problem-tag" data-tag="' . str_replace(' ', '-', strtolower($tag)) . '">' . $tag . '</span>' . "\r\n";
-            }
             echo <<<MEASURE
           <tr>
             <td><a href="{$link}">{$measure->post_title}</a></td>

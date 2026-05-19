@@ -23,6 +23,11 @@ add_action('wp_enqueue_scripts', function () {
 
 }, 20);
 
+	/**
+	 * RL - Preload ajax handlers for measures library
+	 */
+include_once(__DIR__ . '/inc/ajax_handlers.php');
+
 /**
  * Include 'measure' custom post type in WordPress search results.
  */
@@ -64,6 +69,24 @@ add_action('wp_enqueue_scripts', function () {
 			show_admin_bar( false );
 		}
 	} );
+
+	// retrieve a list of problem areas as a string of tags
+	function get_problem_areas($ID = null): string {
+		// get problem areas
+		$terms = get_the_terms( $ID, 'problem-area' );
+
+		$problem_areas = [];
+
+		if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+			$problem_areas = wp_list_pluck( $terms, 'name' );
+		}
+
+		$problem_tags = null;
+		foreach($problem_areas as $tag) {
+			$problem_tags .= '<span class="problem-tag" data-tag="' . str_replace(' ', '-', strtolower($tag)) . '">' . $tag . '</span>' . "\r\n";
+		}
+		return $problem_tags;
+	}
 
 	function debug ( $msg, $exit = false ): void {
 		echo '<pre>';
