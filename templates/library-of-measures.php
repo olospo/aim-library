@@ -51,24 +51,24 @@ get_header();
           <span class="filter-label">Age range</span>
 
           <div class="age-selects">
-            <input type="number" aria-label="Minimum age" placeholder="Minimum age" min="0">
-            <input type="number" aria-label="Maximum age" placeholder="Maximum age" min="0">
+            <input name="min_age" type="number" aria-label="Minimum age" placeholder="Minimum age" min="0">
+            <input name="max_age" type="number" aria-label="Maximum age" placeholder="Maximum age" min="0">
           </div>
         </div>
 
         <div class="filter-block problem-filter">
           <label class="filter-label" for="problem-area">Problem area</label>
-          <select id="problem-area">
-            <option>All problem areas</option>
-            <option>Anxiety</option>
-            <option>Mood Problems</option>
-            <option>Obsessions and Compulsions</option>
-            <option>Body Image and Eating Difficulties</option>
-            <option>Unusual Experiences</option>
-            <option>Trauma</option>
-            <option>Behaviour Problems</option>
-            <option>Self-harm and Suicidal Thoughts and Behaviour</option>
-            <option>Other</option>
+          <select id="problem-area" class="js-filter-problem-area">
+            <option value="">All problem areas</option>
+            <option value="anxiety">Anxiety</option>
+            <option value="mood-problems">Mood Problems</option>
+            <option value="obsessions-and-compulsions">Obsessions and Compulsions</option>
+            <option value="body-image-and-eating-difficulties">Body Image and Eating Difficulties</option>
+            <option value="unusual-experiences">Unusual Experiences</option>
+            <option value="trauma">Trauma</option>
+            <option value="behaviour-problems">Behaviour Problems</option>
+            <option value="self-harm-and-suicidal-thoughts-and-behaviour">Self-harm and Suicidal Thoughts and Behaviour</option>
+            <option value="other">Other</option>
           </select>
         </div>
       </div>
@@ -79,7 +79,7 @@ get_header();
   <div class="measure-results">
     <div class="results-summary">
         <p><strong>Showing <span class="js-count"><?php echo count($measures); ?></span> measures</strong></p>
-      <button type="button" class="clear-filters">Clear filters</button>
+        <button type="button" class="js-clear-filters" >Clear filters</button>
     </div>
 
     <div class="table-wrap">
@@ -121,6 +121,7 @@ get_header();
             $ages = ($age_min && $age_max) ? $age_min . '&nbsp;&mdash;&nbsp;' . $age_max : $ages;
             $ages = $ages ? $ages : $age_max;
             $respondent = $metas['respondent'][0] ?? null;
+            $respondent = ucwords(str_replace(['t-c', '-'], ['t / c', ' '], $respondent));
 
             $problem_tags = get_problem_areas($measure->ID);
             $authors = $metas['authors'][0] ?? null;

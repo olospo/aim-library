@@ -19,6 +19,7 @@
     $summary                    = $metas['summary'] ?? null;
     $time                       = $metas['time'] ?? null;
     $respondent                 = $metas['respondent'] ?? null;
+    $respondent                 = ucwords(str_replace(['t-c', '-'], ['t / c', ' '], $respondent));
     $problem_tags               = get_problem_areas($post->ID);
     $overview                   = $metas['overview'] ?? null;
     $scoring                    = $metas['scoring'] ?? null;
