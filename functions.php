@@ -14,7 +14,7 @@ add_action('wp_enqueue_scripts', function () {
 				'templates/aim-library.php',
 				'templates/aim-measure.php',
 				'templates/library-of-measures.php',
-			]) 
+			])
 			|| is_singular('measure')
 		) {
 			wp_enqueue_style(
@@ -29,7 +29,7 @@ add_action('wp_enqueue_scripts', function () {
 /**
 * RL - Preload ajax handlers for measures library
 */
-include_once(__DIR__ . '/inc/ajax_handlers.php');
+include_once(__DIR__ . '/inc/ajax-handlers.php');
 
 /**
  * Include 'measure' custom post type in WordPress search results.
