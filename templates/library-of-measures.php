@@ -9,6 +9,8 @@ get_header();
     $args = [
             'post_type' => 'measure',
             'numberposts' => -1,
+            'orderBy' => 'title',
+            'order' => 'ASC',
     ];
 
     $measures = get_posts($args);
@@ -30,7 +32,7 @@ get_header();
 
       <div class="filter-block">
         <label class="filter-label" for="measure-search">Filter measures</label>
-        <input id="measure-search" type="search" class="measure-search" placeholder="Filter by measure title">
+        <input id="measure-search" type="search" class="measure-search js-measure-search" placeholder="Filter by measure title or author name">
       </div>
 
       <div class="filter-row">
@@ -106,7 +108,7 @@ get_header();
           </tr>
         </thead>
 
-        <tbody>
+        <tbody class="js-measure-list">
         <?php foreach ($measures as $measure) {
 
             $link = get_permalink($measure->ID);
@@ -121,10 +123,11 @@ get_header();
             $respondent = $metas['respondent'][0] ?? null;
 
             $problem_tags = get_problem_areas($measure->ID);
+            $authors = $metas['authors'][0] ?? null;
 
             echo <<<MEASURE
           <tr>
-            <td><a href="{$link}">{$measure->post_title}</a></td>
+            <td><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
             <td>{$ages}</td>
             <td><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
