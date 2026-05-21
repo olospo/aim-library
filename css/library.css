@@ -253,6 +253,9 @@
 .measures-table td.title {
   font-size: 1.8rem;
 }
+.measures-table td.age {
+  //display: revert;
+}
 
 .measures-table td em {
   font-size: 14px;

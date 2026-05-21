@@ -129,7 +129,7 @@ get_header();
             echo <<<MEASURE
           <tr>
             <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
-            <td class="age">{$ages}</td>
+            <td>{$ages}</td>
             <td class="respondent"><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
               {$problem_tags}
