@@ -326,8 +326,9 @@ section table tr:nth-child(2n+1) td {
 .problem-tags {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   gap: 8px;
+  min-height: 100%;
 }
 
 .problem-tag {
