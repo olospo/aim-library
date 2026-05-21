@@ -333,6 +333,7 @@ section table tr:nth-child(2n+1) td {
 
 .measures-table td.problem-tags {
   vertical-align: middle;
+  padding: 15px 15px 5px 15px !important;
 }
 
 .problem-tags {
@@ -340,7 +341,7 @@ section table tr:nth-child(2n+1) td {
 }
 
 .measures-table td.problem-tags .problem-tag {
-  margin: 0 8px 0 0;
+  margin: 0px 8px 10px 0;
 }
 
 .problem-tag {
