@@ -61,30 +61,32 @@
   gap: 28px;
   align-items: end;
   margin-top: 15px;
-  .pill-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    .filter-pill {
-      min-height: 38px;
-      padding: 0 18px;
-      border: 1px solid var(--aim-border);
-      border-radius: 10px;
-      background: #f8fafc;
-      color: var(--aim-muted);
-      font-size: 1.5rem;
-      font-weight: 700;
-      cursor: pointer;
-      &:hover, &:focus-visible {
-        background: #eef6f7;
-        color: var(--aim-blue);
-      }
-      &.is-active {
-        background: #72AFAD;
-        border-color: #72AFAD;
-        color: #ffffff;
-      }
-    }
+  
+}
+.pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  
+}
+.filter-pill {
+  min-height: 38px;
+  padding: 0 18px;
+  border: 1px solid var(--aim-border);
+  border-radius: 10px;
+  background: #f8fafc;
+  color: var(--aim-muted);
+  font-size: 1.5rem;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover, &:focus-visible {
+    background: #eef6f7;
+    color: var(--aim-blue);
+  }
+  &.is-active {
+    background: #72AFAD;
+    border-color: #72AFAD;
+    color: #ffffff;
   }
 }
 
