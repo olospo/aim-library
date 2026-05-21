@@ -78,7 +78,7 @@ get_header();
 
   <div class="measure-results">
     <div class="results-summary">
-        <p><strong>Showing <span class="js-count"><?php echo count($measures); ?></span> measures</strong></p>
+        <h2>Showing <span class="js-count"><?php echo count($measures); ?></span> measures</h2>
         <button type="button" class="js-clear-filters" >Clear filters</button>
     </div>
 
@@ -128,9 +128,9 @@ get_header();
 
             echo <<<MEASURE
           <tr>
-            <td><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
-            <td>{$ages}</td>
-            <td><span class="tag tag-self">{$respondent}</span></td>
+            <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
+            <td class="age">{$ages}</td>
+            <td class="respondent"><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
               {$problem_tags}
             </td>

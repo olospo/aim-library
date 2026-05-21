@@ -72,7 +72,7 @@ get_header();
 
   <div class="measure-results">
     <div class="results-summary">
-      <p><strong>Showing 31 measures</strong></p>
+      <h2>Showing 31 measures</h2>
       <button type="button" class="clear-filters">Reset filters</button>
     </div>
 
