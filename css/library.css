@@ -269,7 +269,7 @@ section table tr:nth-child(2n+1) td {
 .measures-table a {
   color: var(--aim-blue);
   font-weight: 800;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .measures-table a:hover {
@@ -327,8 +327,20 @@ section table tr:nth-child(2n+1) td {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   min-height: 100%;
+}
+
+.measures-table td.problem-tags {
+  vertical-align: middle;
+}
+
+.problem-tags {
+  display: table-cell;
+}
+
+.measures-table td.problem-tags .problem-tag {
+  margin: 0 8px 0 0;
 }
 
 .problem-tag {
