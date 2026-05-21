@@ -42,7 +42,7 @@
 .measure-search,
 .measure-filters select {
   width: 100%;
-  min-height: 44px;
+  min-height: 42px;
   border-radius: 10px;
   border: 1px solid var(--aim-border);
   background: #ffffff;
@@ -75,7 +75,7 @@
 }
 
 .filter-pill {
-  min-height: 38px;
+  min-height: 42px;
   padding: 0 18px;
   border: 1px solid var(--aim-border);
   border-radius: 10px;
@@ -228,7 +228,7 @@
 
 .measures-table th:nth-child(3),
 .measures-table td:nth-child(3) {
-  width: 11%;
+  width: 10%;
 }
 
 .measures-table tbody tr {
