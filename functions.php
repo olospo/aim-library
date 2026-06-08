@@ -8,22 +8,14 @@ add_action('wp_enqueue_scripts', function () {
         filemtime(get_stylesheet_directory() . '/style.css')
     );
 
-    // AIM Library styles
-		if (
-			is_page_template([
-				'templates/aim-library.php',
-				'templates/aim-measure.php',
-				'templates/library-of-measures.php',
-			])
-			|| is_singular('measure')
-		) {
+
 			wp_enqueue_style(
 				'aim-prototype',
 				get_stylesheet_directory_uri() . '/css/library.css',
 				[],
 				filemtime(get_stylesheet_directory() . '/css/library.css')
 			);
-		}
+	
 }, 20);
 
 /**
