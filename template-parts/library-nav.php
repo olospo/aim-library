@@ -9,8 +9,16 @@ $submit_url   = home_url( '/submit-measure/' );
   <div class="container">
     <div class="twelve columns">
       <ul>
+        
+        <?php
+        $is_library = (
+            is_page_template( 'library-of-measures.php' ) ||
+            is_singular( 'measure' )
+        );
+        ?>
+
         <li>
-          <a class="<?php echo is_page( 'aim-library' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>">Browse Measures</a>
+          <a class="<?php echo $is_library ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>">Browse Measures</a>
         </li>
 
         <?php if ( is_user_logged_in() ) : ?>
