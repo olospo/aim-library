@@ -1,11 +1,16 @@
 <?php
 /*
+*
+* @todo Remove this template before launch
+* This template is currently retained because it may still be referenced by existing page assignments or legacy functionality.
+*
 Template Name: AIM Measure Prototype
 */
 
 get_header();
 ?>
 
+<?php get_template_part( 'template-parts/library-nav' ); ?>
 <section class="hero measure-hero">
   <div class="container">
     <div class="content ten columns">

@@ -17,6 +17,7 @@ get_header();
 
 ?>
 
+<?php get_template_part( 'template-parts/library-nav' ); ?>
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
