@@ -12,7 +12,7 @@ $submit_url   = home_url( '/submit-measure/' );
         
         <?php
         $is_library = (
-            is_page_template( 'library-of-measures.php' ) ||
+            is_page_template( 'templates/library-of-measures.php' ) ||
             is_singular( 'measure' )
         );
         ?>
