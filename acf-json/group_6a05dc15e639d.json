@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -35,7 +35,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "25",
                 "class": "",
                 "id": ""
             },
@@ -58,7 +58,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -75,7 +75,7 @@
             "name": "time",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Estimated completion time",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -210,5 +210,5 @@
     "display_title": "Measure — key details",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779184719
+    "modified": 1780914410
 }
