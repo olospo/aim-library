@@ -4,8 +4,9 @@
  */
  
 $registration_enabled = false;
-
-if ( is_user_logged_in() ) {
+$allow_logged_in_testing = true;
+ 
+if ( ! $allow_logged_in_testing && is_user_logged_in() ) {
   wp_safe_redirect( home_url( '/aim-library/' ) );
   exit;
 }

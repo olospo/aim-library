@@ -2,8 +2,10 @@
 /**
  * Template Name: Login
  */
+ 
+$allow_logged_in_testing = true;
 
-if ( is_user_logged_in() ) {
+if ( ! $allow_logged_in_testing && is_user_logged_in() ) {
   wp_safe_redirect( home_url( '/aim-library/' ) );
   exit;
 }

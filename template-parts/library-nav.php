@@ -1,5 +1,5 @@
 <?php
-$library_url  = home_url( '/aim-library/' );
+$library_url  = home_url( '/library-of-measures/new-library-of-measures/' );
 $login_url    = home_url( '/login/' );
 $register_url = home_url( '/register/' );
 $submit_url   = home_url( '/submit-measure/' );
