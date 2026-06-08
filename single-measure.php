@@ -43,11 +43,10 @@
     }
 
     ?>
-
+    <?php get_template_part( 'template-parts/library-nav' ); ?>
     <section class="hero measure-hero">
         <div class="container">
             <div class="content twelve columns">
-                <!-- <a href="<?php echo esc_url( home_url('/aim-library/') ); ?>" class="back-link">Back to Library</a> -->
 
                 <p class="eyebrow">Measure</p>
 
