@@ -20,27 +20,6 @@
             "allow_in_bindings": 0
         },
         {
-            "key": "field_6a0b1a39b1b8f",
-            "label": "Authors",
-            "name": "authors",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_6a06c5a8229ff",
             "label": "Citation",
             "name": "citation",
@@ -81,6 +60,27 @@
             "toolbar": "full",
             "media_upload": 1,
             "delay": 0
+        },
+        {
+            "key": "field_6a0b1a39b1b8f",
+            "label": "Authors",
+            "name": "authors",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_6a06c5a822a73",
@@ -150,5 +150,5 @@
     "display_title": "Measure — Citation & References",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779184718
+    "modified": 1779272622
 }

@@ -1,14 +1,8 @@
 <?php
 /**
- * Template Name: Login
+ * Template Name: Thanks for your submission
  */
 
-$allow_logged_in_testing = true;
-
-if ( ! $allow_logged_in_testing && is_user_logged_in() ) {
-  wp_safe_redirect( home_url( '/aim-library/' ) );
-  exit;
-}
 
 get_header();
 ?>
@@ -18,8 +12,7 @@ get_header();
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
-      <h1>Login to your account</h1>
-      <p>Access your account to submit measures.</p>
+      <h1><?php echo $post->post_title; ?></h1>
     </div>
   </div>
 </section>
@@ -53,10 +46,10 @@ get_header();
 
         <div class="six columns omega">
           <aside class="auth-side-panel">
-            <h2>Researcher access</h2>
+            <h2>Contributor access</h2>
 
             <p>
-              Researchers can submit new measures for review and help expand the AIM Library.
+              Contributors can submit new measures for review and help expand the AIM Library.
             </p>
 
             <ul>
@@ -76,6 +69,5 @@ get_header();
     </div>
   </div>
 </section>
-
 
 <?php get_footer(); ?>

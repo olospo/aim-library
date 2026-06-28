@@ -3,12 +3,56 @@
  * Template Name: Submit Measure
  */
 
-if ( ! is_user_logged_in() ) {
-  wp_safe_redirect( home_url( '/login/' ) );
-  exit;
-}
+    // Redirect if not logged in
+    if ( ! is_user_logged_in() ) {
+        wp_safe_redirect( home_url( '/login/' ) );
+        exit;
+    }
 
-get_header();
+    // Determine whether we're editing an existing post or creating a new one
+    $edit_post_id = null;
+
+    if ( isset( $_GET['post_id'] ) ) {
+        $requested_id = intval( $_GET['post_id'] );
+        $post         = get_post( $requested_id );
+
+        // Validate: must exist, be a measure, and belong to the current user
+        if (
+                $post &&
+                $post->post_type === 'measure' &&
+                (int) $post->post_author === get_current_user_id()
+        ) {
+            $edit_post_id = $requested_id;
+        } else {
+            // Post doesn't belong to them — silently fall back to new post
+            $edit_post_id = null;
+        }
+    }
+
+    $form_args = $edit_post_id ? [
+        // Editing an existing measure
+            'post_id'         => $edit_post_id,
+            'post_title'      => true,
+            'post_content'    => false,
+            'submit_value'    => 'Update Measure',
+            'updated_message' => 'Your measure has been updated.',
+            'return'          => home_url( '/thank-you/' ),
+    ] : [
+        // Creating a new measure
+            'post_id'         => 'new_post',
+            'post_title'      => true,
+            'post_content'    => false,
+            'new_post'        => [
+                    'post_type'   => 'measure',
+                    'post_status' => 'draft',
+            ],
+            'submit_value'    => 'Submit Measure',
+            'updated_message' => 'Your measure has been submitted for review.',
+            'return'          => home_url( '/thank-you/' ),
+    ];
+
+    acf_form_head();
+    get_header();
 ?>
 
 <?php get_template_part( 'template-parts/library-nav' ); ?>
@@ -16,8 +60,9 @@ get_header();
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
-      <h1>Submit a Measure</h1>
-      <p>Contribute a new measure to the AIM Library.</p>
+
+        <h1><?php echo $edit_post_id ? 'Edit Measure' : 'Submit a Measure'; ?></h1>
+        <p>Contribute a new measure to the AIM Library.</p>
     </div>
   </div>
 </section>
@@ -32,13 +77,11 @@ get_header();
           <div class="auth-card">
 
             <div class="auth-card-header">
-              <h2>Measure submissions</h2>
+              <h2>The Measure</h2>
               <p>
-                Measure submission functionality is currently being developed.
-              </p>
+                Please fill out the details below
             </div>
-
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <?php acf_form( $form_args ); ?>
 
           </div>
         </div>
@@ -67,4 +110,4 @@ get_header();
   </div>
 </section>
 
-<?php get_footer(); ?>
+<?php get_footer();

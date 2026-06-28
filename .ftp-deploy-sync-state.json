@@ -1,13 +1,17 @@
 {
     "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
     "version": "1.0.0",
-    "generatedTime": 1778497763233,
+    "generatedTime": 1780923208709,
     "data": [
         {
             "type": "file",
-            "name": "archive-measure.php",
-            "size": 184,
-            "hash": "46a854711ce12acf86e980981e5619b5f7be2c7bfb50ab48a587fb9db9a626c1"
+            "name": ".ftp-deploy-sync-state.json",
+            "size": 2149,
+            "hash": "b50874aa5b94ab05f4f22ea0aa31d1b35a1746482a02154648833751f254c1dd"
+        },
+        {
+            "type": "folder",
+            "name": "acf-json"
         },
         {
             "type": "folder",
@@ -15,9 +19,23 @@
         },
         {
             "type": "file",
+            "name": "footer.php",
+            "size": 4014,
+            "hash": "42401b97fcf26d44f17e754b68b1adf62235e6d1d7f51ef4d40feb68e9410807"
+        },
+        {
+            "type": "file",
             "name": "functions.php",
-            "size": 566,
-            "hash": "45c0dd3dffcb325038a463dc0f046ff48c69cd43182d99053fb617f55ff9c842"
+            "size": 2272,
+            "hash": "4a0b0bad04b14fb947369985938976a12f402c287ae0a467d9aa8a96100681f3"
+        },
+        {
+            "type": "folder",
+            "name": "inc"
+        },
+        {
+            "type": "folder",
+            "name": "js"
         },
         {
             "type": "file",
@@ -27,15 +45,25 @@
         },
         {
             "type": "file",
+            "name": "search.php",
+            "size": 1144,
+            "hash": "2e4a44dd0d0ecf0e37178bd1aacf8d7c9f0d50f4a7d0b8bd7a4db6cb71d422be"
+        },
+        {
+            "type": "file",
             "name": "single-measure.php",
-            "size": 184,
-            "hash": "46a854711ce12acf86e980981e5619b5f7be2c7bfb50ab48a587fb9db9a626c1"
+            "size": 8364,
+            "hash": "d4cd66f66ff4ec283722e011dfdeeae9abd07fa337dcb67c36fe1f7cbdf33119"
         },
         {
             "type": "file",
             "name": "style.css",
-            "size": 219,
-            "hash": "7bb3daf3ec167f8373113c3f4ff2f707f40e8a4b10b32decce5d06bd9c1dc6bf"
+            "size": 220,
+            "hash": "9076becac06158a1a1d6b30d46029a60d4531f66cba8e8fb54d78eff3622338d"
+        },
+        {
+            "type": "folder",
+            "name": "template-parts"
         },
         {
             "type": "folder",
@@ -43,21 +71,93 @@
         },
         {
             "type": "file",
+            "name": "acf-json/group_6a05dc15e639d.json",
+            "size": 5904,
+            "hash": "a15290d6635ad304149068cba78a9c3aad3bb3597b639b50cdbbccae622348b8"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/group_6a06c4b835089.json",
+            "size": 5078,
+            "hash": "ccb6dc49bd010ea366235555d70bb32245cb860c808698814295ca0cca292349"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/group_6a06c5a8207c7.json",
+            "size": 4231,
+            "hash": "4608d5b573b055f775f3f363415e6308f021910628bf8ac99d45cca519db8688"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/group_6a0ad987e1540.json",
+            "size": 2018,
+            "hash": "44ed8ba14c4290ae6fa1162d416432f527e5b8f24232fa2ff9e1f558a00e1589"
+        },
+        {
+            "type": "file",
+            "name": "acf-json/post_type_6a0414f86ac99.json",
+            "size": 2960,
+            "hash": "f1bdb94415ecafe7669b31e39ed888d307c60a2f86265523b2ccc540e7a0b038"
+        },
+        {
+            "type": "file",
             "name": "css/library.css",
-            "size": 9459,
-            "hash": "98dce120a8dc5fe572105cca0f34257c245943e4af79252ea206b7a05fc31536"
+            "size": 16055,
+            "hash": "6c4a99efc7853536cff2cf8bd5077b89dd7194ab0ff64da43917e19ae3271062"
+        },
+        {
+            "type": "file",
+            "name": "inc/ajax-handlers.php",
+            "size": 6128,
+            "hash": "3daa94a57e26f6926855734d5aadd4d664de9f3cc0c1b6f1802371b6ff18d311"
+        },
+        {
+            "type": "file",
+            "name": "js/aimlib.js",
+            "size": 5000,
+            "hash": "c978039ebe50f07e6d079aa925d630cfd223c137589891094a70ee5ccc9c75e0"
+        },
+        {
+            "type": "file",
+            "name": "template-parts/library-nav.php",
+            "size": 1456,
+            "hash": "054d2619146d762669a276af9e088934c88fcd736760ebabead8a6cd07288f56"
         },
         {
             "type": "file",
             "name": "templates/aim-library.php",
-            "size": 18755,
-            "hash": "5b0f60a057ab92284395ca6a430ef8420aac48e0963da6ed40b03f8ee55ea6d9"
+            "size": 18197,
+            "hash": "086dafb46455d5c562268526d0930227d100f7c375589be36cb18dd1067c0388"
         },
         {
             "type": "file",
             "name": "templates/aim-measure.php",
-            "size": 7092,
-            "hash": "751828712e1dc0581081eb8c8267e30db1c737533bbf9c219b07e36bba90a556"
+            "size": 7379,
+            "hash": "21bb65df373e0fd46a1c1003103f6c20b962e3a8bade305165c61e34c94d5978"
+        },
+        {
+            "type": "file",
+            "name": "templates/login.php",
+            "size": 2047,
+            "hash": "eac559eea003e5198004e08e0b30177199dfb17244690a89faa74952b5d60de5"
+        },
+        {
+            "type": "file",
+            "name": "templates/register.php",
+            "size": 5369,
+            "hash": "4b1fa113c0069384c76754d6b3350d5011dee8eef93b4e8b4225a8eaef66496c"
+        },
+        {
+            "type": "file",
+            "name": "templates/library-of-measures.php",
+            "size": 6716,
+            "hash": "920c9966e2063ed294f7d79bf7db371706e98b6fcfce5f6d2ecc30a367f5bfe1"
+        },
+        {
+            "type": "file",
+            "name": "templates/submit-measure.php",
+            "size": 1893,
+            "hash": "97126afcd7aaf7af8335785054a443ab99b3ef63d136d6a1a7bb0725e1b567f9"
         }
     ]
 }

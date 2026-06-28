@@ -174,12 +174,11 @@
                         <h2>Citation</h2>
 
                         <div class="citation-box">
-                            <p>
-                                NIHR Oxford Health Biomedical Research Centre, AIM Library. 2026. Information on:
-                                <strong>Adolescent Cognitive Style Questionnaire</strong>
+                            <p class="js-citation">
+                                <?php echo $citation; ?>
                             </p>
 
-                            <button class="copy-button" type="button">Copy citation</button>
+                            <button class="copy-button js-share" data-clipboard-text='<?php echo $citation; ?>' type="button" alt="copy to clipboard" >Copy citation</button>
                         </div>
                     </div>
 
@@ -187,7 +186,7 @@
                         <h2>Original Reference</h2>
 
                         <p>
-                            Hankin, B. L., &amp; Abramson, L. Y. (2002). Measuring Cognitive Vulnerability to Depression in Adolescence: Reliability, Validity, and Gender Differences. <em>Journal of Clinical Child and Adolescent Psychology, 31</em>(4), 491–504.
+                            <?php echo $original_reference; ?>
                         </p>
 
                     </div>
@@ -196,7 +195,7 @@
                         <h2>References</h2>
 
                         <p>
-                            Metalsky, G. I., &amp; Joiner, T. E. (1992). Vulnerability to Depressive Symptomatology: A Prospective Test of the Diathesis-Stress and Causal Mediation Components of the Hopelessness Theory of Depression. <em>Journal of Personality and Social Psychology, 63</em>(4), 667–675.
+                            <?php echo $references; ?>
                         </p>
 
                     </div>
@@ -207,4 +206,19 @@
         </div>
     </main>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script>
+
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+
+<script>
+    var clipboard = new ClipboardJS('.copy-button');
+
+    tippy('.copy-button', {
+        // default
+        trigger: 'click',
+        content: 'Copied!',
+        placement: 'bottom',
+    });
+</script>
 <?php get_footer(); ?>

@@ -15,7 +15,11 @@ add_action('wp_enqueue_scripts', function () {
 				[],
 				filemtime(get_stylesheet_directory() . '/css/library.css')
 			);
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> 17d6677 (Researcher user role plugin; register; login; logout; admin interface; new measure; click to copy citation)
 }, 20);
 
 /**
@@ -82,6 +86,26 @@ include_once(__DIR__ . '/inc/ajax-handlers.php');
 		}
 		return $problem_tags;
 	}
+
+
+	/* RL HIDE YOAST */
+	function hide_yoastseo() {
+		if ( !current_user_can( 'administrator' ) ) :
+			remove_action('admin_bar_menu', 'wpseo_admin_bar_menu',95);
+			remove_menu_page('wpseo_dashboard');
+		endif;
+	}
+	add_action( 'admin_init', 'hide_yoastseo');
+
+	function yoast_is_toast(){
+		//capability of 'manage_plugins' equals admin, therefore if NOT administrator
+		//hide the meta box from all other roles on the following 'post_type'
+		//such as post, page, custom_post_type, etc
+		if (!current_user_can('activate_plugins')) {
+			remove_meta_box('wpseo_meta', 'post_type', 'normal');
+		}
+	}
+	add_action('add_meta_boxes', 'yoast_is_toast', 99);
 
 	function debug ( $msg, $exit = false ): void {
 		echo '<pre>';

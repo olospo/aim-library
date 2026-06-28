@@ -95,8 +95,8 @@ MEASURE;
 		check_ajax_referer('filter_measures_nonce', 'nonce');
 
 		// Sanitize
-		$age_min     = intval($_POST['age_min'] ?? 0);
-		$age_max      = intval($_POST['age_max'] ?? 0);
+		$age_min     = intval($_POST['age_min'] ?? null);
+		$age_max      = intval($_POST['age_max'] ?? null);
 		$problem_area = sanitize_text_field($_POST['problem_area'] ?? '');
 
 		$respondents_raw = sanitize_text_field($_POST['respondents'] ?? '');
@@ -122,20 +122,20 @@ MEASURE;
 		//  Build meta_query clauses ---
 		$meta_clauses = [];
 
-		if ($age_min) {
+		if ($age_ax) {
 			$meta_clauses[] = [
 				'key'     => 'age_min',
-				'value'   => $age_min,
-				'compare' => '>=',
+				'value'   => $age_max,
+				'compare' => '<=',
 				'type'    => 'NUMERIC',
 			];
 		}
 
-		if ($age_max) {
+		if ($age_min) {
 			$meta_clauses[] = [
 				'key'     => 'age_max',
-				'value'   => $age_max,
-				'compare' => '<=',
+				'value'   => $age_min,
+				'compare' => '>=',
 				'type'    => 'NUMERIC',
 			];
 		}
