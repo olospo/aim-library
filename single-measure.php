@@ -122,7 +122,7 @@
 
                             <div class="property-item">
                                 <h3>Structural Validity</h3>
-                                <?php echo $structural_validity; ?>>
+                                <?php echo $structural_validity; ?>
                             </div>
 
                             <div class="property-item">
@@ -142,20 +142,20 @@
                         </div>
                     </section>
 
-                    <?php debug($group_differences);  if( $group_differences || $sensitivity) { ?>  <section class="measure-section">
+                    <?php  if( $group_differences || $sensitivity) { ?>  <section class="measure-section">
                         <h2>Additional Psychometric Properties</h2>
 
                         <?php if($group_differences) { ?>
                         <div class="property-item">
                             <h3>Group Differences</h3>
-                            <?php echo $group_differences; ?>>
+                            <?php echo $group_differences; ?>
                         </div>
                         <?php } ?>
 
                         <?php if($sensitivity) { ?>
                         <div class="property-item">
                             <h3>Sensitivity to Change</h3>
-                            <?php echo $sensitivity; ?>>
+                            <?php echo $sensitivity; ?>
                         </div>
                         <?php } ?>
                     </section>

@@ -85,8 +85,10 @@
      * Send admin notification email when a new researcher registers.
      */
     function aim_notify_admin_new_researcher( int $user_id, string $name, string $email ): void {
-        $admin_email  = 'robin@ultrasimplified.com';
-        $site_name    = get_bloginfo( 'name' );
+        $admin_emails = rr_get_admin_emails();
+        if ( empty( $admin_emails ) ) return;
+
+        $site_name     = get_bloginfo( 'name' );
         $edit_user_url = admin_url( 'user-edit.php?user_id=' . $user_id );
 
         $subject = sprintf( '[%s] New Researcher Registration', $site_name );
@@ -102,7 +104,7 @@
                 $edit_user_url
         );
 
-        wp_mail( $admin_email, $subject, $message );
+        wp_mail( $admin_emails, $subject, $message );
     }
 
     get_header();
@@ -111,118 +113,117 @@
 <?php get_template_part( 'template-parts/library-nav' ); ?>
 
 <section class="hero single">
-  <div class="container">
-    <div class="content ten columns">
-      <h1>Create an account</h1>
-      <p>Register to submit new measures for review by the AIM team.</p>
+    <div class="container">
+        <div class="content ten columns">
+            <h1>Create an account</h1>
+            <p>Register to submit new measures for review by the AIM team.</p>
+        </div>
     </div>
-  </div>
 </section>
 
 <section class="measure-library measure-library-auth">
-  <div class="container">
-    <div class="twelve columns">
+    <div class="container">
+        <div class="twelve columns">
 
-      <div class="auth-layout">
+            <div class="auth-layout">
 
-        <div class="six columns alpha">
-          <div class="auth-card">
-            <?php if ( ! empty( $errors ) ) : ?>
-              <div class="auth-notice auth-notice-error">
-                <?php foreach ( $errors as $error ) : ?>
-                  <p><?php echo esc_html( $error ); ?></p>
-                <?php endforeach; ?>
-              </div>
-            <?php endif; ?>
+                <div class="six columns alpha">
+                    <div class="auth-card">
+                        <?php if ( ! empty( $errors ) ) : ?>
+                            <div class="auth-notice auth-notice-error">
+                                <?php foreach ( $errors as $error ) : ?>
+                                    <p><?php echo esc_html( $error ); ?></p>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 
-            <form method="post" class="aim-register-form">
+                        <form method="post" class="aim-register-form">
 
-              <?php wp_nonce_field( 'aim_register_user', 'aim_register_nonce' ); ?>
+                            <?php wp_nonce_field( 'aim_register_user', 'aim_register_nonce' ); ?>
 
-              <p>
-                <label for="aim_name">Name</label>
-                <input
-                  type="text"
-                  name="aim_name"
-                  id="aim_name"
-                  value="<?php echo esc_attr( $_POST['aim_name'] ?? '' ); ?>"
-                  required
-                >
-              </p>
+                            <p>
+                                <label for="aim_name">Name</label>
+                                <input
+                                        type="text"
+                                        name="aim_name"
+                                        id="aim_name"
+                                        value="<?php echo esc_attr( $_POST['aim_name'] ?? '' ); ?>"
+                                        required
+                                >
+                            </p>
 
-              <p>
-                <label for="aim_email">Email address</label>
-                <input
-                  type="email"
-                  name="aim_email"
-                  id="aim_email"
-                  value="<?php echo esc_attr( $_POST['aim_email'] ?? '' ); ?>"
-                  required
-                >
-              </p>
+                            <p>
+                                <label for="aim_email">Email address</label>
+                                <input
+                                        type="email"
+                                        name="aim_email"
+                                        id="aim_email"
+                                        value="<?php echo esc_attr( $_POST['aim_email'] ?? '' ); ?>"
+                                        required
+                                >
+                            </p>
 
-              <p>
-                <label for="aim_password">Password</label>
-                <input
-                  type="password"
-                  name="aim_password"
-                  id="aim_password"
-                  required
-                >
-              </p>
+                            <p>
+                                <label for="aim_password">Password</label>
+                                <input
+                                        type="password"
+                                        name="aim_password"
+                                        id="aim_password"
+                                        required
+                                >
+                            </p>
 
-              <p>
-                <label for="aim_confirm_password">Confirm password</label>
-                <input
-                  type="password"
-                  name="aim_confirm_password"
-                  id="aim_confirm_password"
-                  required
-                >
-              </p>
+                            <p>
+                                <label for="aim_confirm_password">Confirm password</label>
+                                <input
+                                        type="password"
+                                        name="aim_confirm_password"
+                                        id="aim_confirm_password"
+                                        required
+                                >
+                            </p>
 
-              <p class="login-submit">
-                <input
-                  type="submit"
-                  value="<?php echo $registration_enabled ? 'Register' : 'Registration coming soon'; ?>"
-                  <?php disabled( ! $registration_enabled ); ?>
-                >
-              </p>
+                            <p class="login-submit">
+                                <input
+                                        type="submit"
+                                        value="Register"
+                                >
+                            </p>
 
-            </form>
+                        </form>
 
-            <div class="auth-card-footer">
-              <a href="<?php echo esc_url( home_url( '/login/' ) ); ?>">
-                Already have an account? Login
-              </a>
+                        <div class="auth-card-footer">
+                            <a href="<?php echo esc_url( home_url( '/login/' ) ); ?>">
+                                Already have an account? Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="six columns omega">
+                    <aside class="auth-side-panel">
+                        <h2>Contribute to the AIM Library</h2>
+
+                        <p>
+                            Contributors can submit new measures for review before they are added to the library.
+                        </p>
+
+                        <ul>
+                            <li>Submit new measures</li>
+                            <li>Support the AIM research community</li>
+                            <li>Help expand the Library of Measures</li>
+                        </ul>
+
+                        <p class="auth-side-panel__note">
+                            All submissions are reviewed by the AIM team before being published in the library.
+                        </p>
+                    </aside>
+                </div>
+
             </div>
-          </div>
+
         </div>
-
-        <div class="six columns omega">
-          <aside class="auth-side-panel">
-            <h2>Contribute to the AIM Library</h2>
-
-            <p>
-              Contributors can submit new measures for review before they are added to the library.
-            </p>
-
-            <ul>
-              <li>Submit new measures</li>
-              <li>Support the AIM research community</li>
-              <li>Help expand the Library of Measures</li>
-            </ul>
-
-            <p class="auth-side-panel__note">
-              All submissions are reviewed by the AIM team before being published in the library.
-            </p>
-          </aside>
-        </div>
-
-      </div>
-
     </div>
-  </div>
 </section>
 
 <?php get_footer(); ?>

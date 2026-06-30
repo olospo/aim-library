@@ -40,14 +40,14 @@
     ] : [
         // Creating a new measure
             'post_id'         => 'new_post',
-            'post_title'      => true,
+            'post_title'      => false,
             'post_content'    => false,
             'new_post'        => [
                     'post_type'   => 'measure',
                     'post_status' => 'draft',
             ],
             'submit_value'    => 'Submit Measure',
-            'updated_message' => 'Your measure has been submitted for review.',
+            'updated_message' => 'Your measure has been saved to your Measures page.',
             'return'          => home_url( '/thank-you/' ),
     ];
 
@@ -77,10 +77,11 @@
           <div class="auth-card">
 
             <div class="auth-card-header">
-              <h2>The Measure</h2>
-              <p>
+              <h2 style="margin-left: 16px;">The Measure</h2>
+              <p style="margin-left: 16px;">
                 Please fill out the details below
             </div>
+
               <?php acf_form( $form_args ); ?>
 
           </div>
@@ -109,5 +110,42 @@
     </div>
   </div>
 </section>
+<style>
+    .acf-field {
+        display: flex;
+        flex-direction: column;
+    }
 
+    .acf-field .acf-label {
+        order: 1;
+    }
+
+    .acf-field .accordionItem {
+        order: 2;
+    }
+
+    .acf-field .acf-input {
+        order: 3;
+    }
+
+    .acf-field .acf-label label {
+        font-size: 16px;
+        font-weight: 700;
+    }
+    .acf-field .acf-label p {
+        font-size: 16px;
+        font-style: italic;
+        letter-spacing: 0.01em;
+        line-height: 20px;
+        margin-bottom: 4px;
+    }
+    .acf-input .acf-link a.button {
+        border: 1px solid #0C7AB7;
+        border-radius: 5px;
+        color: #0E7BB8;
+    }
+    .accordionItem {
+        border-bottom: 0;
+    }
+</style>
 <?php get_footer();
