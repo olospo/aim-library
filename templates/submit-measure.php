@@ -34,21 +34,21 @@
             'post_id'         => $edit_post_id,
             'post_title'      => true,
             'post_content'    => false,
-            'submit_value'    => 'Update Measure',
+            'submit_value'    => 'Update Measure and revert to Draft status',
             'updated_message' => 'Your measure has been updated.',
-            'return'          => home_url( '/thank-you/' ),
+            'return'          => home_url( '/library-of-measures/my-measures/?status=updated' ),
     ] : [
         // Creating a new measure
             'post_id'         => 'new_post',
-            'post_title'      => false,
+            'post_title'      => true,
             'post_content'    => false,
             'new_post'        => [
                     'post_type'   => 'measure',
                     'post_status' => 'draft',
             ],
-            'submit_value'    => 'Submit Measure',
+            'submit_value'    => 'Save Measure as Draft',
             'updated_message' => 'Your measure has been saved to your Measures page.',
-            'return'          => home_url( '/thank-you/' ),
+            'return'          => home_url( '/library-of-measures/my-measures/?status=created' ),
     ];
 
     acf_form_head();
@@ -79,7 +79,7 @@
             <div class="auth-card-header">
               <h2 style="margin-left: 16px;">The Measure</h2>
               <p style="margin-left: 16px;">
-                Please fill out the details below
+                Please fill out the details below. For title please give the Name and the abbreviation of the measure
             </div>
 
               <?php acf_form( $form_args ); ?>

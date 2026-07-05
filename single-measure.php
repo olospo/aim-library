@@ -29,9 +29,8 @@
     $structural_validity        = $metas['structural_validity'] ?? null;
     $convergent_validity        = $metas['convergent_validity'] ?? null;
     $divergent_validity         = $metas['divergent_validity'] ?? null;
-    $measurement_inveriance     = $metas['divergent_validity'] ?? null;
-    $group_differences          = $metas['group_differences'] ?? null;
-    $sensitivity                = $metas['sensitivity'] ?? null;
+    $measurement_invariance     = $metas['divergent_validity'] ?? null;
+    $additional_psychometric    = $metas['additional_psychometric_information'] ?? null;
     $citation                   = $metas['citation'] ?? null;
     $original_reference         = $metas['original_reference'] ?? null;
     $references                 = $metas['references'] ?? null;
@@ -142,23 +141,17 @@
                         </div>
                     </section>
 
-                    <?php  if( $group_differences || $sensitivity) { ?>  <section class="measure-section">
-                        <h2>Additional Psychometric Properties</h2>
+                    <?php  if( $additional_psychometric) { ?>
+                    <section class="measure-section">
 
-                        <?php if($group_differences) { ?>
-                        <div class="property-item">
-                            <h3>Group Differences</h3>
-                            <?php echo $group_differences; ?>
-                        </div>
-                        <?php } ?>
+                        <h2>Additional Psychometric Information</h2>
 
-                        <?php if($sensitivity) { ?>
-                        <div class="property-item">
-                            <h3>Sensitivity to Change</h3>
-                            <?php echo $sensitivity; ?>
+
+                            <div class="property-item">
+                            <?php echo $additional_psychometric; ?>
                         </div>
-                        <?php } ?>
                     </section>
+
                     <?php } ?>
                     <section class="measure-section">
                         <h2>Access</h2>

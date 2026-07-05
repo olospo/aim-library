@@ -122,10 +122,12 @@ MEASURE;
 		//  Build meta_query clauses ---
 		$meta_clauses = [];
 
-		if ($age_ax) {
+		$median = ($age_max - $age_min) / 2;
+
+		if ($age_max) {
 			$meta_clauses[] = [
 				'key'     => 'age_min',
-				'value'   => $age_max,
+				'value'   => $median,
 				'compare' => '<=',
 				'type'    => 'NUMERIC',
 			];
@@ -134,11 +136,12 @@ MEASURE;
 		if ($age_min) {
 			$meta_clauses[] = [
 				'key'     => 'age_max',
-				'value'   => $age_min,
+				'value'   => $median,
 				'compare' => '>=',
 				'type'    => 'NUMERIC',
 			];
 		}
+
 
 		if (!empty($respondents)) {
 			if (count($respondents) === 1) {

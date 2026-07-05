@@ -35,7 +35,7 @@ get_header();
             <?php
             wp_login_form([
               'redirect'       => home_url( '/aim-library/' ),
-              'label_username' => 'Email or username',
+              'label_username' => 'Email address',
               'label_password' => 'Password',
               'label_remember' => 'Remember me',
               'label_log_in'   => 'Login',

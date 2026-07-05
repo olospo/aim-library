@@ -5,6 +5,7 @@ Template Name: MY Library of Measures
 
 get_header();
 
+$status = $_GET['status'] ?? null;
 
 // fetch all measures
     $args = [
@@ -12,13 +13,13 @@ get_header();
             'posts_per_page' => -1,
             'orderby'        => 'title',
             'order'          => 'ASC',
-            'post_status'    => [ 'draft', 'publish' ],
+            'post_status'    => [ 'draft', 'pending', 'publish' ],
             'author'         => get_current_user_id(),
     ];
 
     $query   = new WP_Query( $args );
     $measures = $query->posts;
-?>
+    ?>
 
 <?php get_template_part( 'template-parts/library-nav' ); ?>
 <section class="hero single">
@@ -32,6 +33,28 @@ get_header();
 <section class="measure-library">
   <div class="container">
 
+      <?php if ($status) {
+          echo "<br/><h2>Thank you</h2>";
+          switch ($status ) {
+              case 'created':
+                  $message = 'Your measure has been created and saved as a draft. You can edit it here or submit it for review and publication.';
+                  break;
+
+              case 'updated':
+                  $message = 'Your measure has been saved as a draft. You can edit it here or submit it for review and publication.';
+                  break;
+
+              case 'pending':
+                  $message = 'Your measure has been submitted for review';
+                  break;
+
+              default:
+                  $message = $status;
+                  break;
+          }
+          echo "<p>$message</p>";
+      }
+      ?>
   <div class="measure-results">
     <div class="results-summary">
         <h2>Showing <span class="js-count"><?php echo count($measures); ?></span> measure<?php echo (1 == count($measures) ? '' : 's'); ?> created by  <?php echo wp_get_current_user()->display_name; ?></h2>
@@ -61,6 +84,7 @@ get_header();
 
             <th>Problem Areas</th>
               <th>Status</th>
+              <th>Actions</th>
           </tr>
         </thead>
 
@@ -82,8 +106,26 @@ get_header();
             $problem_tags = get_problem_areas($measure->ID);
             $authors = $metas['authors'][0] ?? null;
             $status = ucwords($measure->post_status);
-            $status = ('publish' == $status) ? 'Published' : $status;
-            $status = ('pending' == $status) ? 'Pending Review' : $status;
+            $status = ('Publish' == $status) ? 'Published' : $status;
+            $status = ('Pending' == $status) ? 'Pending Review' : $status;
+
+            $nonce_field = wp_nonce_field( 'submit_for_review_' . $measure->ID, '_wpnonce', true, false );
+            $action = esc_url( admin_url( 'admin-post.php' ) );
+            $measure_id = $measure->ID;
+
+            $review = '';
+
+            if ( 'Draft' == $status ){
+
+       $review = <<<REVIEW
+         <form method="post" action="$action">
+            <input type="hidden" name="action" value="submit_for_review">
+            <input type="hidden" name="post_id" value="$measure_id">
+                                                      $nonce_field
+            <button type="submit">Submit for Review</button>
+    </form>
+REVIEW;
+            }
 
             echo <<<MEASURE
           <tr>
@@ -93,8 +135,11 @@ get_header();
             <td class="problem-tags">
               {$problem_tags}
             </td>
-            <td>{$status}<br/><a href="/library-of-measures/edit-measure/?post_id={$measure->ID}"><button>Edit</button></a><br/>
-            <a href="/library-of-measures/edit-measure/?post_id={$measure->ID}"><button>Submit for Review</button></a></td>
+            <td>{$status}</td>
+            <td><a href="/library-of-measures/edit-measure/?post_id={$measure->ID}"><button>Edit measure</button></a><br/>
+           $review
+        
+           </td>
             
           </tr>
 MEASURE;

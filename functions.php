@@ -76,7 +76,7 @@
 			$problem_areas = wp_list_pluck( $terms, 'name' );
 		}
 
-		$problem_tags = null;
+		$problem_tags = '';
 		foreach($problem_areas as $tag) {
 			$problem_tags .= '<span class="problem-tag" data-tag="' . str_replace(' ', '-', strtolower($tag)) . '">' . $tag . '</span>' . "\r\n";
 		}
@@ -102,6 +102,59 @@
 		}
 	}
 	add_action('add_meta_boxes', 'yoast_is_toast', 99);
+
+	add_action( 'admin_post_submit_for_review', 'us_handle_submit_for_review' );
+
+	/**
+	 * Determine whether the current user owns a given draft post.
+	 *
+	 * @param int $post_id ID of the post to check.
+	 *
+	 * @return bool True if the post exists, is a draft, and is authored
+	 *              by the current logged-in user; false otherwise.
+	 */
+	function us_user_owns_draft( int $post_id ): bool {
+		$post = get_post( $post_id );
+
+		return $post
+		       && 'draft' === $post->post_status
+		       && (int) $post->post_author === get_current_user_id();
+	}
+
+	/**
+	 * Handle the front-end "Submit for Review" action.
+	 *
+	 * Triggered via admin-post.php for logged-in users only. Verifies the
+	 * request nonce and confirms ownership of the draft via
+	 * us_user_owns_draft(), then transitions the post status to 'pending'
+	 * and redirects back to the referring listing page.
+	 *
+	 * Expects the following $_POST fields:
+	 * - post_id  (int)    ID of the post to submit for review.
+	 * - _wpnonce (string) Nonce generated with action 'submit_for_review_{post_id}'.
+	 *
+	 * @return void Redirects on success; calls wp_die() on failure.
+	 */
+	function us_handle_submit_for_review() {
+		$post_id = isset( $_POST['post_id'] ) ? absint( $_POST['post_id'] ) : 0;
+
+		// Verify nonce.
+		check_admin_referer( 'submit_for_review_' . $post_id );
+
+		if ( ! us_user_owns_draft( $post_id ) ) {
+			wp_die( __( 'You are not allowed to submit this post for review.' ) );
+		}
+
+		wp_update_post( [
+			'ID'          => $post_id,
+			'post_status' => 'pending',
+		] );
+
+		// Back to the listing page with a flag for an optional success notice.
+		wp_safe_redirect( home_url( '/library-of-measures/my-measures/?status=pending' ) );
+		exit;
+	}
+
 
 	function debug ( $msg, $exit = false ): void {
 		echo '<pre>';
