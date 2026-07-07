@@ -35,6 +35,8 @@
     $original_reference         = $metas['original_reference'] ?? null;
     $references                 = $metas['references'] ?? null;
     $licensing                  = $metas['licensing'] ?? null;
+    $acknowledgement            = $metas['acknowledgement'] ?? false;
+    $acknowledgements           = $metas['acknowledgements'] ?? null;
 
     // post process custom metadata
     if(is_numeric($time)) {
@@ -192,7 +194,16 @@
                         </p>
 
                     </div>
+<?php if( $acknowledgement ) { ?>
+                    <div class="footer-section">
+                        <h2>Acknowledgements</h2>
 
+                        <p>
+                            <?php echo $acknowledgements; ?>
+                        </p>
+
+                    </div>
+<?php } ?>
                 </section>
 
             </div>
