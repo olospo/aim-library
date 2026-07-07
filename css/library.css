@@ -695,6 +695,14 @@ section.measure-hero p.measure-summary {
 
 /* Form */
 
+.acf-fields > .acf-field {
+  padding: 10px 0 !important;
+  border: none !important;
+}
+.button.insert-media {
+  text-transform: capitalize;
+}
+
 .auth-card form p {
   margin-bottom: 18px;
 }
