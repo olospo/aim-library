@@ -717,6 +717,8 @@ section.measure-hero p.measure-summary {
 
 .auth-card input[type="text"],
 .auth-card input[type="email"],
+.auth-card input[type="number"],
+.auth-card textarea,
 .auth-card input[type="password"] {
   width: 100%;
   min-height: 44px;
