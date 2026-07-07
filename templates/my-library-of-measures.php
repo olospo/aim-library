@@ -57,7 +57,7 @@ $status = $_GET['status'] ?? null;
       ?>
   <div class="measure-results">
     <div class="results-summary">
-        <h2>Showing <span class="js-count"><?php echo count($measures); ?></span> measure<?php echo (1 == count($measures) ? '' : 's'); ?> created by  <?php echo wp_get_current_user()->display_name; ?></h2>
+        <h2>Showing <span class="js-count"><?php echo count($measures); ?></span> measure<?php echo (1 == count($measures) ? '' : 's'); ?> created by  <?php echo ucwords(wp_get_current_user()->display_name); ?></h2>
     </div>
 
     <div class="table-wrap">
