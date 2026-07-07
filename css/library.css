@@ -718,7 +718,7 @@ section.measure-hero p.measure-summary {
 .auth-card input[type="text"],
 .auth-card input[type="email"],
 .auth-card input[type="number"],
-.auth-card textarea,
+.auth-card textarea,≈
 .auth-card input[type="password"] {
   width: 100%;
   min-height: 44px;
@@ -735,8 +735,34 @@ section.measure-hero p.measure-summary {
 .auth-card input[type="email"]:focus,
 .auth-card input[type="password"]:focus {
   outline: none;
-  border-color: #2da7ae;
+  border-color: #2ea9b0;
   box-shadow: 0 0 0 3px rgba(114, 175, 173, 0.18);
+}
+
+.auth-card .select2-container {
+  width: 100% !important;
+}
+
+.select2-container--open .select2-dropdown {
+  top: 27px;
+}
+
+.auth-card .select2-selection--single {
+  min-height: 44px;
+  border: 1px solid var(--aim-border) !important;
+  border-radius: 9px !important;
+  background: #fff !important;
+}
+
+.auth-card .select2-selection__rendered {
+  line-height: 42px !important;
+  padding-left: 13px !important;
+  color: var(--aim-text) !important;
+  font-size: 1.6rem;
+}
+
+.auth-card .select2-selection__arrow {
+  height: 42px !important;
 }
 
 .auth-card .login-remember {
