@@ -696,7 +696,7 @@ section.measure-hero p.measure-summary {
 /* Form */
 
 .acf-fields > .acf-field {
-  padding: 10px 0 !important;
+  padding: 8px 0 !important;
   border: none !important;
 }
 .button.insert-media {
@@ -741,6 +741,22 @@ section.measure-hero p.measure-summary {
 
 .auth-card .select2-container {
   width: 100% !important;
+}
+
+.auth-card .accordionItem {
+  padding: 5px;
+  background: #f8f8f8;
+}
+.auth-card .accordionItem {
+  .title {
+    padding: 0 35px 0 10px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.auth-card .open .accordionItemContent {
+  padding: 10px 10px 0 10px;
 }
 
 .select2-container--open .select2-dropdown {
