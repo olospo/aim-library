@@ -17,7 +17,7 @@
 }
 
 .hero.single {
-  background: #72afac !important;
+  background: #2ea9b0 !important;
 }
 
 .measure-library {
@@ -97,8 +97,8 @@
 }
 
 .filter-pill.is-active {
-  background: #72AFAD;
-  border-color: #72AFAD;
+  background: #2da7ae;
+  border-color: #2da7ae;
   color: #ffffff;
 }
 
@@ -379,14 +379,14 @@ section table tr:nth-child(2n+1) td {
 
 /* Measure Hero */
 section.measure-hero {
-  background: #72AFAC;
+  background: #2ea9b0;
   padding: 40px 0;
 }
 
 section.measure-hero a.back-link {
   background: #fff;
   margin: 0 0 30px 0;
-  color: #72AFAC;
+  color: #2ea9b0;
   font-size: 1.4rem;
   font-weight: 850;
   letter-spacing: 0.08em;
@@ -600,7 +600,7 @@ section.measure-hero p.measure-summary {
 /* ============================= Measure Navigation ============================= */
 
 .measure-library-subnav {
-  background: #549491;
+  background: #1e898f;
   border-bottom: 0;
   
 
@@ -725,7 +725,7 @@ section.measure-hero p.measure-summary {
 .auth-card input[type="email"]:focus,
 .auth-card input[type="password"]:focus {
   outline: none;
-  border-color: #72AFAD;
+  border-color: #2da7ae;
   box-shadow: 0 0 0 3px rgba(114, 175, 173, 0.18);
 }
 
@@ -752,7 +752,7 @@ section.measure-hero p.measure-summary {
   padding: 0 22px;
   border: 0;
   border-radius: 9px;
-  background: #72AFAD;
+  background: #2da7ae;
   color: #ffffff;
   font-size: 1.45rem;
   font-weight: 850;
