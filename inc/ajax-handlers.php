@@ -114,6 +114,7 @@ MEASURE;
 		// Base args
 		$args = [
 			'post_type'      => 'measure',
+			'post_status'    => 'publish',
 			'posts_per_page' => -1,
 			'orderby'        => 'title',
 			'order'          => 'ASC',
@@ -122,12 +123,14 @@ MEASURE;
 		//  Build meta_query clauses ---
 		$meta_clauses = [];
 
-		$median = ($age_max - $age_min) / 2;
+		// sanitize values
+		$age_min = ($age_min < 5 || 0 == $age_min) ? 5 : $age_min;
+		$age_max = ($age_max > 100 || 0 == $age_max) ? 100 : $age_max;
 
 		if ($age_max) {
 			$meta_clauses[] = [
-				'key'     => 'age_min',
-				'value'   => $median,
+				'key'     => 'age_max',
+				'value'   => $age_max,
 				'compare' => '<=',
 				'type'    => 'NUMERIC',
 			];
@@ -135,8 +138,8 @@ MEASURE;
 
 		if ($age_min) {
 			$meta_clauses[] = [
-				'key'     => 'age_max',
-				'value'   => $median,
+				'key'     => 'age_min',
+				'value'   => $age_min,
 				'compare' => '>=',
 				'type'    => 'NUMERIC',
 			];

@@ -8,6 +8,7 @@ get_header();
 // fetch all measures
     $args = [
             'post_type' => 'measure',
+            'post_status' => 'publish',
             'numberposts' => -1,
             'orderBy' => 'title',
             'order' => 'ASC',
