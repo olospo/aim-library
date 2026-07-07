@@ -110,7 +110,7 @@
                             </div>
 
                             <div class="property-item">
-                                <h3>Test-retest Reliability</h3>
+                                <h3>Test-Retest Reliability</h3>
                                 <?php echo $test_retest_reliability; ?>
                             </div>
 
