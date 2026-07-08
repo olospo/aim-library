@@ -585,25 +585,26 @@ section.measure-hero p.measure-summary {
   background: #eef6f7;
 }
 
-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 32px;
-  padding: 0 14px;
-  margin: 5px 0;
-  border: 1px solid #404040;
-  border-radius: 10px;
-  background: #686868;
-  color: #fff;
-  font-weight: 850;
-  cursor: pointer;
-  &:hover {
-    background: #1f4e79;
+table {
+  button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 32px;
+    padding: 0 14px;
+    margin: 5px 0;
+    border: 1px solid #404040;
+    border-radius: 10px;
+    background: #686868;
     color: #fff;
+    font-weight: 850;
+    cursor: pointer;
+    &:hover {
+      background: #1f4e79;
+      color: #fff;
+    }
   }
 }
-
 
 .reference-link {
   display: inline-flex;
