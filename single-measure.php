@@ -15,6 +15,8 @@
         }
     }
 
+    $age_min                    = $metas['age_min'] ?? null;
+    $age_max                    = $metas['age_max'] ?? null;
     $age_description            = $metas['age_description'] ?? null;
     $summary                    = $metas['summary'] ?? null;
     $time                       = $metas['time'] ?? null;
@@ -25,16 +27,15 @@
     $scoring                    = $metas['scoring'] ?? null;
     $internal_consistency       = $metas['internal_consistency'] ?? null;
     $test_retest_reliability    = $metas['test_retest_reliability'] ?? null;
-    $construct_validity         = $metas['construct_validity'] ?? null;
-    $structural_validity        = $metas['structural_validity'] ?? null;
-    $convergent_validity        = $metas['convergent_validity'] ?? null;
-    $divergent_validity         = $metas['divergent_validity'] ?? null;
-    $measurement_invariance     = $metas['divergent_validity'] ?? null;
+    $factor_structure           = $metas['factor_structure'] ?? null;
+    $validity                   = $metas['validity'] ?? null;
+    $measurement_invariance     = $metas['measurement_invariance'] ?? null;
     $additional_psychometric    = $metas['additional_psychometric_information'] ?? null;
     $citation                   = $metas['citation'] ?? null;
     $original_reference         = $metas['original_reference'] ?? null;
     $references                 = $metas['references'] ?? null;
     $licensing                  = $metas['licensing'] ?? null;
+    $paper                      = $metas['paper'] ?? null;
     $acknowledgement            = $metas['acknowledgement'] ?? false;
     $acknowledgements           = $metas['acknowledgements'] ?? null;
 
@@ -42,6 +43,10 @@
     if(is_numeric($time)) {
         $time = $time . ' minutes';
     }
+
+    $age_range = $age_min . ($age_min && $age_max ? ' &mdash; ' : '') . $age_max;
+    $age_range = $age_range . ( $age_description ? '<br/>' . $age_description : '' );
+    $age_rage  = ( ! empty ( $age_range ) ) ? $age_range : 'No information provided';
 
     ?>
     <?php get_template_part( 'template-parts/library-nav' ); ?>
@@ -65,7 +70,7 @@
             <div class="measure-meta-card">
                 <div class="meta-item">
                     <span class="meta-label">Age range</span>
-                    <strong><?php echo $age_description; ?></strong>
+                    <strong><?php echo $age_range; ?></strong>
                 </div>
 
                 <div class="meta-item">
@@ -92,11 +97,13 @@
         <div class="container">
             <div class="measure-shell">
                 <article class="measure-main-card">
-                    <section class="measure-section">
+                   <?php if (! empty($overview )) {
+ ?>
+                   <section class="measure-section">
                         <h2>Overview</h2>
                         <?php echo $overview; ?>
                     </section>
-
+                   <?php } ?>
                     <section class="measure-section">
                         <h2>Scoring &amp; Interpretation</h2>
                         <?php echo $scoring; ?>
@@ -117,48 +124,33 @@
                             </div>
 
                             <div class="property-item">
-                                <h3>Construct Validity</h3>
-                                <?php echo $construct_validity; ?>
+                                <h3>Factor Structure</h3>
+                                <?php echo $factor_structure; ?>
                             </div>
 
                             <div class="property-item">
-                                <h3>Structural Validity</h3>
-                                <?php echo $structural_validity; ?>
+                                <h3>Validity</h3>
+                                <?php echo $validity; ?>
                             </div>
 
+<?php if (! empty ($additional_information)) { ?>
                             <div class="property-item">
-                                <h3>Convergent Validity</h3>
-                                <?php echo $convergent_validity; ?>
+                                <h3>Additional Information</h3>
+                               <?php echo $additional_information; ?>
                             </div>
-
-                            <div class="property-item">
-                                <h3>Divergent Validity</h3>
-                               <?php echo $divergent_validity; ?>
-                            </div>
-
+<?php } ?>
                             <div class="property-item">
                                 <h3>Measurement Invariance</h3>
-                                <?php echo $measurement_inveriance; ?>
+                                <?php echo $measurement_invariance; ?>
                             </div>
                         </div>
                     </section>
 
-                    <?php  if( $additional_psychometric) { ?>
-                    <section class="measure-section">
-
-                        <h2>Additional Psychometric Information</h2>
-
-
-                            <div class="property-item">
-                            <?php echo $additional_psychometric; ?>
-                        </div>
-                    </section>
-
-                    <?php } ?>
                     <section class="measure-section">
                         <h2>Access</h2>
 
                        <?php echo $licensing; ?>
+                        <?php echo $paper; ?>
                     </section>
 
                 </article>

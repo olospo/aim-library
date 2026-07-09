@@ -115,7 +115,7 @@ $status = $_GET['status'] ?? null;
 
             $review = '';
             $tags = '';
-            $keywords = $measure->keywords;
+            $keywords = rtrim($measure->keywords,',');
 
             if ( ! empty( $keywords )) {
                 foreach ( explode( ',', $keywords ) as $keyword ) {

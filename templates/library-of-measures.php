@@ -130,7 +130,7 @@ get_header();
             $authors = $metas['authors'][0] ?? null;
 
             $tags = '';
-            $keywords = $metas['keywords'][0];
+            $keywords = rtrim($metas['keywords'][0],',');
 
             if ( ! empty( $keywords )) {
                 foreach ( explode( ',', $keywords ) as $keyword ) {
