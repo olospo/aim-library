@@ -16,6 +16,7 @@ get_header();
 
     $measures = get_posts($args);
 
+
 ?>
 
 <?php get_template_part( 'template-parts/library-nav' ); ?>
@@ -128,9 +129,20 @@ get_header();
             $problem_tags = get_problem_areas($measure->ID);
             $authors = $metas['authors'][0] ?? null;
 
+            $tags = '';
+            $keywords = $metas['keywords'][0];
+
+            if ( ! empty( $keywords )) {
+                foreach ( explode( ',', $keywords ) as $keyword ) {
+                    $keyword = trim( $keyword );
+                    $class =  ( $keyword == $search ) ? 'keyword-highlight' : '';
+                    $tags .= "<span class='keyword $class'>{$keyword}</span>";
+                }
+            }
+
             echo <<<MEASURE
           <tr>
-            <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
+            <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small><br/>$tags</td>
             <td>{$ages}</td>
             <td class="respondent"><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">

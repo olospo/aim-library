@@ -623,7 +623,7 @@ table {
 .measure-library-subnav {
   background: #1e898f;
   border-bottom: 0;
-  
+
 
   ul {
     text-align: right;
@@ -1068,4 +1068,31 @@ table {
     grid-template-columns: 1fr;
     gap: 8px;
   }
+}
+
+/* added by Robin for keywords display */
+.keyword {
+  border: 1px solid #AAA;
+  border-radius: 4px;
+  box-shadow: 1px 2px 2px #DDD;
+  background-image: linear-gradient(
+          to bottom,
+          #F9F9F9,
+          color-mix(in oklch, #F9F9F9, white 15%),
+          #F9F9F9
+  );
+  padding: 3px;
+  font-family: inherit;
+  font-size: 0.65em;
+  line-height: 16px;
+  margin-right: 4px;
+}
+
+.keyword-highlight {
+  background-image: linear-gradient(
+          to bottom,
+          #FCED3C,
+          color-mix(in oklch, #FCED3C, white 15%),
+          #FCED3C
+  );
 }

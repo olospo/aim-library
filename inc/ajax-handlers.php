@@ -25,16 +25,24 @@
 			'search_columns' => ['post_title'], // WP 6.2+ — restricts 's' to title only
 		]);
 
-// Match against citation meta
+// Match against citation meta and keywords
 		$meta_query = new WP_Query([
 			'post_type'      => 'measure',
 			'posts_per_page' => -1,
 			'fields'         => 'ids',
-			'meta_query'     => [[
-				'key'     => 'authors',
-				'value'   => $search,
-				'compare' => 'LIKE',
-			]],
+			'meta_query'     => [
+				'relation' => 'OR',
+				[
+					'key'     => 'authors',
+					'value'   => $search,
+					'compare' => 'LIKE',
+				],
+				[
+					'key'     => 'keywords',
+					'value'   => $search,
+					'compare' => 'LIKE',
+				],
+			],
 		]);
 
 // Merge and deduplicate the matched IDs
@@ -73,10 +81,21 @@
 
 			$problem_tags = get_problem_areas($measure->ID);
 
+			$tags = '';
+			$keywords = $metas['keywords'][0];
+
+			if ( ! empty( $keywords )) {
+				foreach ( explode( ',', $keywords ) as $keyword ) {
+					$keyword = trim( $keyword );
+					$class =  ( $keyword == $search ) ? 'keyword-highlight' : '';
+					$tags .= "<span class='keyword $class'>{$keyword}</span>";
+				}
+			}
+
 			$authors = $metas['authors'][0] ?? null;
 			echo <<<MEASURE
           <tr>
-            <td><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
+            <td><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small><br/>$tags</td>
             <td>{$ages}</td>
             <td><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
@@ -127,6 +146,7 @@ MEASURE;
 		$age_min = ($age_min < 5 || 0 == $age_min) ? 5 : $age_min;
 		$age_max = ($age_max > 100 || 0 == $age_max) ? 100 : $age_max;
 
+		// age range handler
 		if ($age_max) {
 			$meta_clauses[] = [
 				'key'     => 'age_max',
@@ -165,8 +185,6 @@ MEASURE;
 						'compare' => '=',
 					];
 				}
-
-				error_log( (string) $respondents ); // the full SQL string
 
 				$meta_clauses[] = $respondent_query;
 			}

@@ -114,6 +114,16 @@ $status = $_GET['status'] ?? null;
             $measure_id = $measure->ID;
 
             $review = '';
+            $tags = '';
+            $keywords = $measure->keywords;
+
+            if ( ! empty( $keywords )) {
+                foreach ( explode( ',', $keywords ) as $keyword ) {
+                    $keyword = trim( $keyword );
+                    $class =  ( $keyword == $search ) ? 'keyword-highlight' : '';
+                    $tags .= "<span class='keyword $class'>{$keyword}</span>";
+                }
+            }
 
             if ( 'Draft' == $status ){
 
@@ -129,7 +139,7 @@ REVIEW;
 
             echo <<<MEASURE
           <tr>
-            <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small></td>
+            <td class="title"><a href="{$link}">{$measure->post_title}</a><br/><small><em>{$authors}</em></small><br/>$tags</td>
             <td>{$ages}</td>
             <td class="respondent"><span class="tag tag-self">{$respondent}</span></td>
             <td class="problem-tags">
