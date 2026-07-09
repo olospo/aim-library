@@ -35,7 +35,6 @@
     $original_reference         = $metas['original_reference'] ?? null;
     $references                 = $metas['references'] ?? null;
     $licensing                  = $metas['licensing'] ?? null;
-    $paper                      = $metas['paper'] ?? null;
     $acknowledgement            = $metas['acknowledgement'] ?? false;
     $acknowledgements           = $metas['acknowledgements'] ?? null;
 
@@ -129,8 +128,8 @@
                             </div>
 
                             <div class="property-item">
-                                <h3>Validity</h3>
-                                <?php echo $validity; ?>
+                                <h3>Validity</h3><br/>
+                                <?php the_field('validity'); ?>
                             </div>
 
 <?php if (! empty ($additional_information)) { ?>
@@ -150,7 +149,8 @@
                         <h2>Access</h2>
 
                        <?php echo $licensing; ?>
-                        <?php echo $paper; ?>
+                        <br/>
+                        <a href="<?php echo get_field('paper'); ?>" target="_blank" ><?php echo get_field('paper'); ?></a>
                     </section>
 
                 </article>
