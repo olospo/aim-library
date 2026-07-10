@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="property-item">
-                                <h3>Validity</h3><br/>
+                                <h3>Validity</h3>
                                 <?php echo $validity; ?>
                             </div>
 
