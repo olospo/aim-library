@@ -509,6 +509,10 @@ section.measure-hero p.measure-summary {
   font-size: 1.8rem;
   line-height: 1.45;
 }
+.properties-list .property-item p {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
 
 .properties-list .property-content {
   min-width: 0;
