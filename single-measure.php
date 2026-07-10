@@ -129,15 +129,15 @@
 
                             <div class="property-item">
                                 <h3>Validity</h3><br/>
-                                <?php the_field('validity'); ?>
+                                <?php echo $validity; ?>
                             </div>
 
-<?php if (! empty ($additional_information)) { ?>
+                            <?php if (! empty ($additional_information)) { ?>
                             <div class="property-item">
                                 <h3>Additional Information</h3>
                                <?php echo $additional_information; ?>
                             </div>
-<?php } ?>
+                            <?php } ?>
                             <div class="property-item">
                                 <h3>Measurement Invariance</h3>
                                 <?php echo $measurement_invariance; ?>
