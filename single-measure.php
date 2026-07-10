@@ -129,7 +129,7 @@
 
                             <div class="property-item">
                                 <h3>Validity</h3>
-                                <?php echo $validity; ?>
+                                <?php the_field('validity'); ?>
                             </div>
 
                             <?php if (! empty ($additional_information)) { ?>
