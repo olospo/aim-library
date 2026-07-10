@@ -1095,19 +1095,19 @@ table {
 /* added by Robin for keywords display */
 .keyword {
   border: 1px solid #AAA;
-  border-radius: 4px;
-  box-shadow: 1px 2px 2px #DDD;
+  border-radius: 5px;
   background-image: linear-gradient(
           to bottom,
           #F9F9F9,
           color-mix(in oklch, #F9F9F9, white 15%),
           #F9F9F9
   );
-  padding: 3px;
+  padding: 3px 6px;
   font-family: inherit;
   font-size: 0.65em;
   line-height: 16px;
   margin-right: 4px;
+  box-shadow: none;
 }
 
 .keyword-highlight {
