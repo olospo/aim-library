@@ -110,38 +110,53 @@
 
                     <section class="measure-section">
                         <h2>Psychometric Properties</h2>
-
+                    
                         <div class="properties-list">
+                    
                             <div class="property-item">
                                 <h3>Internal Consistency</h3>
-                                <?php echo $internal_consistency; ?>
+                                <div class="property-content">
+                                    <?php echo $internal_consistency; ?>
+                                </div>
                             </div>
-
+                    
                             <div class="property-item">
                                 <h3>Test-Retest Reliability</h3>
-                                <?php echo $test_retest_reliability; ?>
+                                <div class="property-content">
+                                    <?php echo $test_retest_reliability; ?>
+                                </div>
                             </div>
-
+                    
                             <div class="property-item">
                                 <h3>Factor Structure</h3>
-                                <?php echo $factor_structure; ?>
+                                <div class="property-content">
+                                    <?php echo $factor_structure; ?>
+                                </div>
                             </div>
-
+                    
                             <div class="property-item">
                                 <h3>Validity</h3>
-                                <?php the_field('validity'); ?>
+                                <div class="property-content">
+                                    <?php the_field('validity'); ?>
+                                </div>
                             </div>
-
-                            <?php if (! empty ($additional_information)) { ?>
+                    
+                            <?php if (!empty($additional_information)) : ?>
                             <div class="property-item">
                                 <h3>Additional Information</h3>
-                               <?php echo $additional_information; ?>
+                                <div class="property-content">
+                                    <?php echo $additional_information; ?>
+                                </div>
                             </div>
-                            <?php } ?>
+                            <?php endif; ?>
+                    
                             <div class="property-item">
                                 <h3>Measurement Invariance</h3>
-                                <?php echo $measurement_invariance; ?>
+                                <div class="property-content">
+                                    <?php echo $measurement_invariance; ?>
+                                </div>
                             </div>
+                    
                         </div>
                     </section>
 

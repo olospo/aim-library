@@ -510,9 +510,21 @@ section.measure-hero p.measure-summary {
   line-height: 1.45;
 }
 
-.properties-list .property-item p {
-  margin: 0;
+.properties-list .property-content {
+  min-width: 0;
+}
+
+.properties-list .property-content > :first-child {
+  margin-top: 0;
+}
+
+.properties-list .property-content > :last-child {
+  margin-bottom: 0;
+}
+
+.properties-list .property-content p {
   max-width: none;
+  margin: 0 0 12px;
 }
 
 .properties-list .property-item:last-child {
@@ -523,12 +535,18 @@ section.measure-hero p.measure-summary {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   height: 1px;
   background: rgba(31, 45, 61, 0.05);
 }
 
+@media (max-width: 700px) {
+  .properties-list .property-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+}
 /* ============================= Measure Footer ============================= */
 
 .footer-section {
