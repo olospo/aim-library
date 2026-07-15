@@ -216,14 +216,16 @@
                     
                         <?php
                         $form_url = add_query_arg(
-                            'measure',
-                            get_the_title(),
+                            [
+                                'aim_measure_title' => get_the_title(),
+                                'aim_measure_id'    => get_the_ID(),
+                            ],
                             home_url( '/library-of-measures/comment-on-measure/' )
                         );
                         ?>
                     
                         <div class="measure-actions">
-                            <a class="button" href="<?php echo esc_url( $form_url ); ?>">
+                            <a class="button primary" href="<?php echo esc_url( $form_url ); ?>">
                                 Comment on this measure
                             </a>
                         </div>
