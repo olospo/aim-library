@@ -167,9 +167,11 @@
 	}
 
 /** Stop the News menu item appearing active on Measure pages. */
-function aim_fix_news_menu_active_state( $classes, $menu_item ) {
+function aim_library_menu_active_states( $classes, $menu_item ) {
 
 		if ( is_singular( 'measure' ) || is_post_type_archive( 'measure' ) ) {
+
+				// Remove WordPress's false "News" active state.
 				$classes = array_diff(
 						$classes,
 						[
@@ -178,11 +180,18 @@ function aim_fix_news_menu_active_state( $classes, $menu_item ) {
 								'current-menu-ancestor',
 						]
 				);
+
+				// Mark Browse Measures as active.
+				$measure_url = home_url( '/library-of-measures/new-library-of-measures/' );
+
+				if ( untrailingslashit( $menu_item->url ) === untrailingslashit( $measure_url ) ) {
+						$classes[] = 'current-menu-item';
+				}
 		}
 
-		return $classes;
+		return array_unique( $classes );
 }
-add_filter( 'nav_menu_css_class', 'aim_fix_news_menu_active_state', 10, 2 );
+add_filter( 'nav_menu_css_class', 'aim_library_menu_active_states', 10, 2 );
 
 /**
  * Control menu item visibility using CSS classes:
