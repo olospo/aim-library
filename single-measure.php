@@ -201,7 +201,7 @@
                         </p>
 
                     </div>
-<?php if( $acknowledgement ) { ?>
+                    <?php if( $acknowledgement ) { ?>
                     <div class="footer-section">
                         <h2>Acknowledgements</h2>
 
@@ -210,7 +210,26 @@
                         </p>
 
                     </div>
-<?php } ?>
+                    <?php } ?>
+                    
+                    <?php if ( is_user_logged_in() ) : ?>
+                    
+                        <?php
+                        $form_url = add_query_arg(
+                            'measure',
+                            get_the_title(),
+                            home_url( '/library-of-measures/comment-on-measure/' )
+                        );
+                        ?>
+                    
+                        <div class="measure-actions">
+                            <a class="button" href="<?php echo esc_url( $form_url ); ?>">
+                                Comment on this measure
+                            </a>
+                        </div>
+                    
+                    <?php endif; ?>
+                    
                 </section>
 
             </div>
