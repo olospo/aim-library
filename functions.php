@@ -182,7 +182,7 @@ function aim_library_menu_active_states( $classes, $menu_item ) {
 				);
 
 				// Mark Browse Measures as active.
-				$measure_url = home_url( '/library-of-measures/new-library-of-measures/' );
+				$measure_url = home_url( '/library-of-measures/' );
 
 				if ( untrailingslashit( $menu_item->url ) === untrailingslashit( $measure_url ) ) {
 						$classes[] = 'current-menu-item';
