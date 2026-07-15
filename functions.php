@@ -186,19 +186,3 @@
 	}
 	add_filter( 'nav_menu_css_class', 'aim_fix_news_menu_active_state', 10, 2 );
 	
-/* Logged out styling */]
-
-function aim_filter_logged_in_menu_items( $items, $args ) {
-
-		if ( is_user_logged_in() ) {
-				foreach ( $items as $key => $item ) {
-
-						if ( in_array( 'logged-out-only', $item->classes, true ) ) {
-								unset( $items[ $key ] );
-						}
-				}
-		}
-
-		return $items;
-}
-add_filter( 'wp_nav_menu_objects', 'aim_filter_logged_in_menu_items', 10, 2 );
