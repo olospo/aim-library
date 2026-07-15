@@ -12,9 +12,7 @@ get_template_part( 'template-parts/library-nav' );
 <section class="hero single">
   <div class="container">
     <div class="content ten columns">
-
         <h1><?php echo $post->post_title; ?></h1>
-        <p>Contribute a new measure to the AIM Library.</p>
     </div>
   </div>
 </section>
