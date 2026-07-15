@@ -34,7 +34,7 @@ get_header();
           <div class="auth-card">
             <?php
             wp_login_form([
-              'redirect'       => home_url( '/aim-library/' ),
+              'redirect'       => home_url( '/library-of-measures/' ),
               'label_username' => 'Email address',
               'label_password' => 'Password',
               'label_remember' => 'Remember me',
