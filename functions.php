@@ -183,3 +183,34 @@ function aim_fix_news_menu_active_state( $classes, $menu_item ) {
 		return $classes;
 }
 add_filter( 'nav_menu_css_class', 'aim_fix_news_menu_active_state', 10, 2 );
+
+/**
+ * Control menu item visibility using CSS classes:
+ *
+ * logged-out-only = hidden when logged in
+ * logged-in-only  = hidden when logged out
+ */
+function aim_library_filter_menu_visibility( $items, $args ) {
+
+		foreach ( $items as $key => $item ) {
+
+				$classes = is_array( $item->classes ) ? $item->classes : [];
+
+				if (
+						is_user_logged_in()
+						&& in_array( 'logged-out-only', $classes, true )
+				) {
+						unset( $items[ $key ] );
+				}
+
+				if (
+						! is_user_logged_in()
+						&& in_array( 'logged-in-only', $classes, true )
+				) {
+						unset( $items[ $key ] );
+				}
+		}
+
+		return $items;
+}
+add_filter( 'wp_nav_menu_objects', 'aim_library_filter_menu_visibility', 10, 2 );
