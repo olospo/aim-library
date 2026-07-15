@@ -8,11 +8,11 @@
             "name": "age_min",
             "aria-label": "",
             "type": "number",
-            "instructions": "",
+            "instructions": "The youngest age (in years) for which the measure has been validated for",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -31,11 +31,11 @@
             "name": "age_max",
             "aria-label": "",
             "type": "number",
-            "instructions": "",
+            "instructions": "The oldest age (in years) for which the measure has been validated for",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "25",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -50,15 +50,15 @@
         },
         {
             "key": "field_6a05dc323b3ac",
-            "label": "Age description",
+            "label": "Age Other",
             "name": "age_description",
             "aria-label": "",
             "type": "text",
-            "instructions": "",
+            "instructions": "Please add any other age-related information (if applicable)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
@@ -75,7 +75,7 @@
             "name": "time",
             "aria-label": "",
             "type": "text",
-            "instructions": "Estimated completion time",
+            "instructions": "State how long (in minutes) it is likely to take a respondent to complete the measure. Please record this in multiples of 5 (e.g., 5 minutes, 10 minutes, 15 minutes etc.)",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -96,7 +96,7 @@
             "name": "respondent",
             "aria-label": "",
             "type": "select",
-            "instructions": "",
+            "instructions": "Who will be asked to complete the measure?  Please select from the options below:",
             "required": 1,
             "conditional_logic": 0,
             "wrapper": {
@@ -122,12 +122,88 @@
             "save_options": 0
         },
         {
+            "key": "field_6a42185277021",
+            "label": "Problem areas",
+            "name": "problem_areas",
+            "aria-label": "",
+            "type": "taxonomy",
+            "instructions": "Using the options below, please select relevant problem areas that the measure may be applicable to.",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "problem-area",
+            "add_term": 0,
+            "save_terms": 1,
+            "load_terms": 1,
+            "return_format": "id",
+            "field_type": "multi_select",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "bidirectional": 0,
+            "multiple": 0,
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_6a4f6e37e6aad",
+            "label": "Keywords",
+            "name": "keywords",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Please enter a comma-separated series of key words that can make it easier to search for and find this measure.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_6a427cc7bb17d",
+            "label": "Other problem areas",
+            "name": "other_problem_areas",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a42185277021",
+                        "operator": "==contains",
+                        "value": "31"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
             "key": "field_6a05eb8a3b3af",
             "label": "Summary",
             "name": "summary",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Write a short summary of the measure\r\n<cite>The Child Avoidance Measure – Parent report (CAMP) is an 8-Item parent-report measure of a child’s avoidance behaviours and is designed for children aged 7 to 18 years of age (Whiteside et al., 2013). The CAMP items include reference to a range of avoidance behaviours which are combined to provide a single overall measure of a child’s tendency to avoid \r\n\r\nanxiety eliciting stimuli. Reflecting the transdiagnostic nature of avoidance in anxiety disorders, the CAMP is designed to be applicable across anxiety disorders.<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -144,11 +220,11 @@
         },
         {
             "key": "field_6a05eb9c3b3b0",
-            "label": "Overview",
+            "label": "Additional information",
             "name": "overview",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Please include any other details you feel potential users may find useful. This may be other versions of the measure, clinical application, diagnostic relevance, language translations.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -169,7 +245,7 @@
             "name": "scoring",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Scoring: Include details of how to score the questionnaire, including any formulas and reverse- scored items. If recommendations for classification of high\/low scores or normed data are available, this can also be provided.\r\n<cite>The Child Avoidance Measure – Parent report (CAMP) is a brief measure of avoidance behaviour in children and young people. The questionnaire is completed by a parent\/carer. \r\n\r\nParent\/Carers are asked to respond to eight statements on how their children react to things that make them scared or worried. All items are preceded by the general stem statement: \r\n\r\n“When I\/my child feel(s) scared or worried about something ...” and measures three aspects of behavioural avoidance:  passive avoidance (e.g., “...s\/he tries to avoid it”), active avoidance (e.g., “...s\/he tries to get away from it”), and refusal (e.g., “...s\/he asks me to take care of it for him\/her”). Responses are scored on a 4-point Likert scale ranging from 0 (never) to 3 (almost always). Total scores are a sum of all 8 items and scores range from 0 to 24. Higher scores indicate higher levels of behavioural avoidance behaviours.<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -210,5 +286,5 @@
     "display_title": "Measure — key details",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1780914410
+    "modified": 1783591224
 }

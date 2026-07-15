@@ -3,12 +3,33 @@
     "title": "Measure — Citation and References",
     "fields": [
         {
+            "key": "field_6a06c5a822aae",
+            "label": "Licensing",
+            "name": "licensing",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "Include details of any conditions of use e.g., location (eduation, clinic), fee payable, free to students.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "allow_in_bindings": 0,
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
             "key": "field_6a0b18732b1d8",
-            "label": "Link to paper",
+            "label": "Location for Download",
             "name": "paper",
             "aria-label": "",
             "type": "link",
-            "instructions": "",
+            "instructions": "Provide a location for where the measure can be downloaded, if possible.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -46,7 +67,7 @@
             "name": "original_reference",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Include the reference for the primary source of information on the development of the measure.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -88,7 +109,7 @@
             "name": "references",
             "aria-label": "",
             "type": "wysiwyg",
-            "instructions": "",
+            "instructions": "Include any other relevant references, such as papers evaluating the measure.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -104,11 +125,11 @@
             "delay": 0
         },
         {
-            "key": "field_6a06c5a822aae",
-            "label": "Licensing",
-            "name": "licensing",
+            "key": "field_6a42879f30ae3",
+            "label": "Acknowledgement",
+            "name": "acknowledgement",
             "aria-label": "",
-            "type": "wysiwyg",
+            "type": "true_false",
             "instructions": "",
             "required": 0,
             "conditional_logic": 0,
@@ -117,12 +138,41 @@
                 "class": "",
                 "id": ""
             },
-            "default_value": "",
+            "message": "I wish to be acknowledged on the website for my contribution",
+            "default_value": 0,
             "allow_in_bindings": 0,
-            "tabs": "all",
-            "toolbar": "full",
-            "media_upload": 1,
-            "delay": 0
+            "ui_on_text": "",
+            "ui_off_text": "",
+            "ui": 1
+        },
+        {
+            "key": "field_6a4cf1b7bbb39",
+            "label": "Acknowledgements",
+            "name": "acknowledgements",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "Type the name of who you would like to be acknowledged on the main acknowledgements page of the website (this could be an individual or group)",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a42879f30ae3",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
         }
     ],
     "location": [
@@ -134,7 +184,7 @@
             }
         ]
     ],
-    "menu_order": 0,
+    "menu_order": 5,
     "position": "normal",
     "style": "default",
     "label_placement": "top",
@@ -150,5 +200,5 @@
     "display_title": "Measure — Citation & References",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779272622
+    "modified": 1783604646
 }

@@ -8,7 +8,7 @@
             "name": "internal_consistency",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Does the measure have internal consistency reliability (interrelatedness of the items, all items are consistent in regard to the construct\/measuring the same construct)? \r\n\r\nPlease report Cronbach's alpha (or alternative criteria if applicable) and interpret (e.g., alpha > .70 or >.80 indicates good internal consistency). \r\n<cite>Internal consistency reliability in the original development study was strong: ⍺ = .91 clinical sample; ⍺ = .90 community sample (Whiteside et al., 2013)<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -29,7 +29,7 @@
             "name": "test_retest_reliability",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Does the measure have test-retest reliability (consistency over time)? Please report details where available, and interpret (e.g., correlations between Time 1 and Time 2 of .70 < r < .80 indicates acceptable result; .80 < r < .90 indicates good result; r > .90 indicates excellent test-retest reliability).\r\n<cite>Test-retest reliability reported in the development paper (Whiteside et al., 2013), using a community sample, was acceptable .75, p < .05 [3-18 weeks])<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -45,12 +45,12 @@
             "new_lines": ""
         },
         {
-            "key": "field_6a06c4b836733",
-            "label": "Construct Validity",
-            "name": "construct_validity",
+            "key": "field_6a4cc14c7a01d",
+            "label": "Factor structure",
+            "name": "factor_structure",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Report findings of exploratory and\/or confirmatory tests of factor structure. Consider including item loadings, factor loading strength and variance explained (EFA) or fit statistics (CFA)\r\n<cite>Whiteside et al. (2013) conducted exploratory factor analysis (EFA) using a community sample and confirmatory factor analysis (CFA) using a community and clinical sample.\r\nResults of the EFA suggested a one-factor structure (variance explained = 62.3%; loadings >.56). CFA confirmed the one-factor structure in both the community and clinical sample, with adequate model fit and factor loading >.53 in the community sample and >.37 in the clinical sample.<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -61,17 +61,17 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": "",
+            "rows": 6,
             "placeholder": "",
-            "new_lines": ""
+            "new_lines": "br"
         },
         {
-            "key": "field_6a06c4b83676c",
-            "label": "Structural Validity",
-            "name": "structural_validity",
+            "key": "field_6a4cc1867a01e",
+            "label": "Validity",
+            "name": "validity",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Please report any validity analyses conducted on the measure, e.g., convergent validity (measure positively correlates with other measures of the same or similar constructs),\r\ndivergent validity (measure demonstrates weak or no relationship to theoretically different constructs); concurrent validity (measure positively correlates with an established\r\nmeasure of the same or similar construct); criterion validity (measure correlates with external outcome); predictive validity (measure predicts future outcome).\r\n\r\n<cite><strong>Concurrent validity<\/strong> of the CAMP was tested in both a community and clinical sample and was assessed through correlations with measures of anxiety symptoms\r\n(Spence Children’s Anxiety Scale [SCAS]; Social Anxiety Scale for Children-Revised [SASC-R]; Fear of Negative Evaluations [FNE]; Social Avoidance and Distress [SAD]; and disability (Child Sheehan Disability Scale [CSDS]). Correlations were moderate and in the expected direction.<br\/><br\/><strong>Predictive Validity<\/strong> was demonstrated through regression analyses using avoidance at Time 1 to predict changes in anxiety over a span of approximately 1 year.\r\nThe CAMP at Time 1 significantly predicted anxiety levels (as measured by the Social Anxiety Scale for Children- parent version [SCAS-P]) approximately 1 year later\r\nafter accounting for Time 1 anxiety (as measured by the Spence Children’s Anxiety Scale [SCAS-P; Social Anxiety Scale for Children-Revised [SASC-R]; Social Avoidance and Distress [SAD-General-P], and marital status]).<br\/><br\/><strong>Criterion validity.<\/strong> The criterion validity of the CAMP was assessed through comparisons between the clinical and community samples (excluding those with a history of anxiety treatment), controlling for age and sex. The analyses found that children and their parents in the clinical sample endorsed significantly more avoidance than those in the community sample.<\/cite>",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -84,15 +84,15 @@
             "allow_in_bindings": 0,
             "rows": 4,
             "placeholder": "",
-            "new_lines": ""
+            "new_lines": "wpautop"
         },
         {
-            "key": "field_6a06c4b8367af",
-            "label": "Convergent Validity",
-            "name": "convergent_validity",
+            "key": "field_6a4f72403a5d2",
+            "label": "Additional information",
+            "name": "additional_information",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Please include any other psychometric validation details you feel potential users may find useful.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -103,28 +103,7 @@
             "default_value": "",
             "maxlength": "",
             "allow_in_bindings": 0,
-            "rows": 4,
-            "placeholder": "",
-            "new_lines": ""
-        },
-        {
-            "key": "field_6a06c4b8367e8",
-            "label": "Divergent Validity",
-            "name": "divergent_validity",
-            "aria-label": "",
-            "type": "textarea",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "rows": "",
+            "rows": 6,
             "placeholder": "",
             "new_lines": ""
         },
@@ -134,7 +113,7 @@
             "name": "measurement_invariance",
             "aria-label": "",
             "type": "textarea",
-            "instructions": "",
+            "instructions": "Where possible, report any measurement invariance analyses, including the groups tested (such as age, gender and neurodiversity), and fit statistics at the configural, metric and scalar levels, and interpret.",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -175,5 +154,5 @@
     "display_title": "Measure — Pyschometric properties",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779184720
+    "modified": 1783677049
 }
