@@ -165,3 +165,23 @@
 			die("Exiting");
 		}
 	}
+
+/**
+	 * Stop the News menu item appearing active on Measure pages.
+	 */
+	function aim_fix_news_menu_active_state( $classes, $menu_item ) {
+	
+			if ( is_singular( 'measure' ) || is_post_type_archive( 'measure' ) ) {
+					$classes = array_diff(
+							$classes,
+							[
+									'current_page_parent',
+									'current-menu-parent',
+									'current-menu-ancestor',
+							]
+					);
+			}
+	
+			return $classes;
+	}
+	add_filter( 'nav_menu_css_class', 'aim_fix_news_menu_active_state', 10, 2 );
