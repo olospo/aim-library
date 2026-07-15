@@ -27,7 +27,7 @@ $my_url   = home_url( '/my-measures/' );
             <a class="<?php echo is_page( 'submit-measure' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $submit_url ); ?>">Submit Measure</a>
           </li>
           <li>
-            <a class="<?php echo is_page( 'submit-measure' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $my_url ); ?>">My Measures</a>
+            <a class="<?php echo is_page( 'my-measures' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $my_url ); ?>">My Measures</a>
           </li>
             
           <?php // Comment on measure (current measure is pre-populated)
