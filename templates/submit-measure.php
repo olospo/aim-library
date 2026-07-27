@@ -79,7 +79,7 @@
             <div class="auth-card-header">
               <h2>The Measure</h2>
               <p>
-                Please fill out the details below. For title please give the Name and the abbreviation of the measure
+                Please fill out the details below.
             </div>
 
               <?php acf_form( $form_args ); ?>
