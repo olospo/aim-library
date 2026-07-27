@@ -1422,3 +1422,13 @@ table {
           #FCED3C
   );
 }
+
+.acf-taxonomy-field .categorychecklist-holder {
+  max-height: 100% !important;
+  width: 375px;
+  max-width: 100%;
+}
+
+ul.acf-checkbox-list li label span{
+  font-size: 16px !important;
+}
