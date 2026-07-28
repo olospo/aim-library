@@ -110,37 +110,37 @@
 
                     <section class="measure-section">
                         <h2>Psychometric Properties</h2>
-                    
+
                         <div class="properties-list">
-                    
+
                             <div class="property-item">
                                 <h3>Internal Consistency</h3>
                                 <div class="property-content">
                                     <?php echo $internal_consistency; ?>
                                 </div>
                             </div>
-                    
+
                             <div class="property-item">
                                 <h3>Test-Retest Reliability</h3>
                                 <div class="property-content">
                                     <?php echo $test_retest_reliability; ?>
                                 </div>
                             </div>
-                    
+
                             <div class="property-item">
                                 <h3>Factor Structure</h3>
                                 <div class="property-content">
                                     <?php echo $factor_structure; ?>
                                 </div>
                             </div>
-                    
+
                             <div class="property-item">
                                 <h3>Validity</h3>
                                 <div class="property-content">
                                     <?php the_field('validity'); ?>
                                 </div>
                             </div>
-                    
+
                             <?php if (!empty($additional_information)) : ?>
                             <div class="property-item">
                                 <h3>Additional Information</h3>
@@ -149,14 +149,14 @@
                                 </div>
                             </div>
                             <?php endif; ?>
-                    
+
                             <div class="property-item">
                                 <h3>Measurement Invariance</h3>
                                 <div class="property-content">
                                     <?php echo $measurement_invariance; ?>
                                 </div>
                             </div>
-                    
+
                         </div>
                     </section>
 
@@ -180,7 +180,9 @@
                                 <?php echo $citation; ?>
                             </p>
 
-                            <button class="copy-button js-share" data-clipboard-text='<?php echo $citation; ?>' type="button" alt="copy to clipboard" >Copy citation</button>
+                            <button class="copy-button js-share"
+                                    data-clipboard-text="<?php echo htmlspecialchars($citation, ENT_QUOTES, 'UTF-8'); ?>"
+                                    type="button" alt="copy to clipboard">Copy citation</button>
                         </div>
                     </div>
 
@@ -211,9 +213,9 @@
 
                     </div>
                     <?php } ?>
-                    
+
                     <?php if ( is_user_logged_in() ) : ?>
-                    
+
                         <?php
                         $form_url = add_query_arg(
                             [
@@ -223,15 +225,15 @@
                             home_url( '/library-of-measures/comment-on-measure/' )
                         );
                         ?>
-                    
+
                         <div class="measure-actions">
                             <a class="button primary" href="<?php echo esc_url( $form_url ); ?>">
                                 Comment on this measure
                             </a>
                         </div>
-                    
+
                     <?php endif; ?>
-                    
+
                 </section>
 
             </div>
