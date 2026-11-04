@@ -23,7 +23,7 @@ $my_url   = home_url( '/my-measures/' );
         </li>
         
         <li>
-          <a class="<?php echo $is_library ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>/about-the-library">About the Library</a>
+          <a class="<?php echo is_page( 'about-the-library' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>/about-the-library">About the Library</a>
         </li>
 
         <?php if ( is_user_logged_in() ) : ?>
