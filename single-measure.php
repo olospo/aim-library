@@ -100,12 +100,12 @@
  ?>
                    <section class="measure-section">
                         <h2>Overview</h2>
-                        <?php echo $overview; ?>
+                        <p><?php echo $overview; ?></p>
                     </section>
                    <?php } ?>
                     <section class="measure-section">
                         <h2>Scoring &amp; Interpretation</h2>
-                        <?php echo $scoring; ?>
+                        <p><?php echo $scoring; ?></p>
                     </section>
 
                     <section class="measure-section">
@@ -163,7 +163,7 @@
                     <section class="measure-section">
                         <h2>Access</h2>
 
-                       <?php echo $licensing; ?>
+                        <p><?php echo $licensing; ?></p>
                         <br/>
                         <a href="<?php echo get_field('paper'); ?>" target="_blank" ><?php echo get_field('paper'); ?></a>
                     </section>
