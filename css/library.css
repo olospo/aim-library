@@ -486,7 +486,7 @@ section.measure-hero p.measure-summary {
 .measure-section p {
   margin: 0 0 16px;
   font-size: 1.8rem;
-  line-height: 2.6rem;
+  line-height: 2.8rem;
 }
 
 /* ============================= Properties ============================= */
@@ -510,8 +510,8 @@ section.measure-hero p.measure-summary {
   line-height: 1.45;
 }
 .properties-list .property-item p {
-  font-size: 1.6rem;
-  line-height: 2.6rem;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
 }
 
 .properties-list .property-content {
@@ -583,7 +583,7 @@ section.measure-hero p.measure-summary {
 
 .citation-box p {
   margin: 0 0 16px;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 /* Buttons */
