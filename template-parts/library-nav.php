@@ -21,14 +21,21 @@ $my_url   = home_url( '/my-measures/' );
         <li>
           <a class="<?php echo $is_library ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>">Browse Library</a>
         </li>
+        
+        <li>
+          <a class="<?php echo $is_library ? 'active' : ''; ?>" href="<?php echo esc_url( $library_url ); ?>/about-the-library">About the Library</a>
+        </li>
 
         <?php if ( is_user_logged_in() ) : ?>
-          <li>
-            <a class="<?php echo is_page( 'submit-measure' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $submit_url ); ?>">Submit Measure</a>
-          </li>
+          
           <li>
             <a class="<?php echo is_page( 'my-measures' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $my_url ); ?>">My Measures</a>
           </li>
+          
+          <li>
+            <a class="<?php echo is_page( 'submit-measure' ) ? 'active' : ''; ?>" href="<?php echo esc_url( $submit_url ); ?>">Submit Measure</a>
+          </li>
+          
             
           <?php // Comment on measure (current measure is pre-populated)
           $comment_url = home_url( '/library-of-measures/comment-on-measure/' );
